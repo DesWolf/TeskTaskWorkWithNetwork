@@ -10,10 +10,11 @@ import UIKit
 
 class UsersTableViewCell: UITableViewCell {
 
-    
+    @IBOutlet var userNameLabel: UILabel!
     
     func configere( with user: UsersModel) {
-        self.userNameLabel.text
+        self.userNameLabel.text = user.name
+        
     }
 
     

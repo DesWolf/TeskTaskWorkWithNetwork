@@ -14,18 +14,30 @@ class UsersVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var users = [UsersModel]()
-    
+    let url = "https://jsonplaceholder.typicode.com/users"
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UsersNetworkService.getComments { (response) in
-            self.users = response.users
-            self.tableView.reloadData()
+            tableView.dataSource = self
+            tableView.delegate = self
             
+            fetchData(identifier: "")
         }
         
+        func fetchData(identifier: String) {
+        
+        NetworkService.fetchData(url: url, identifier: identifier) { (users) in
+        
+            self.users = users as! [UsersModel]
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+           
+            }
+        }
     }
 }
+
 
 extension UsersVC: UITableViewDelegate {
 }

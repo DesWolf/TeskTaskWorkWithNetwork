@@ -8,25 +8,40 @@
 
 import Foundation
 
+enum NetworkEnvironment: String {
+    case users
+    case albums
+    case photos
+}
+
+
 class NetworkService {
     
-    private init() {}
-    static let shared = NetworkService()
+        static let url = ""
     
-    public func getData( url: URL, comlection: @escaping (Any) -> ()) {
-        let session = URLSession.shared
+     static func fetchData(url: String, identifier: String, completion: @escaping (Any) -> ()) {
         
-        session.dataTask(with: url) { (data, response, error) in
-            guard let data = data  else { return }
-            
-            do {
-                let json = try JSONSerialization.jsonObject(with: data, options: [])
-                DispatchQueue.main.async {
-                    comlection(json)
+            guard let url = URL(string: url) else { return }
+            URLSession.shared.dataTask(with: url) { (data, responce, error) in
+                guard let data = data else { return }
+                do {
+                    let decoder = JSONDecoder()
+                    let jsonData = try decoder.decode([UsersModel].self, from: data)
+                    completion(jsonData)
+                } catch let error {
+                    print ("Error serialization JSON", error)
                 }
-            } catch  {
-                print(error)
-            }
-        }.resume()
+            }.resume()
+        }
+}
+
+extension NetworkEnvironment {
+    switch NetworkService. {
+        case users:
+            let url = "https://jsonplaceholder.typicode.com/users"
+        case albums:
+            let url = "https://jsonplaceholder.typicode.com/albums"
+        case photos:
+            let url = "https://jsonplaceholder.typicode.com/photos"
     }
 }
