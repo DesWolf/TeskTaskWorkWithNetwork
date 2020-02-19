@@ -6,6 +6,8 @@
 //  Copyright © 2020 Максим Окунеев. All rights reserved.
 //
 
+import Foundation
+
 class NetworkService {
     
     private init() {}

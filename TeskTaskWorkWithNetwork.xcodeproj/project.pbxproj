@@ -7,32 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E525D7D23FD2896002292DD /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E525D7C23FD2896002292DD /* PhotosTableViewCell.swift */; };
+		9E525D7F23FD29B5002292DD /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E525D7E23FD29B5002292DD /* UsersTableViewCell.swift */; };
+		9E525D8123FD468F002292DD /* UsersNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E525D8023FD468F002292DD /* UsersNetworkService.swift */; };
+		9E525D8323FD4822002292DD /* GetUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E525D8223FD4822002292DD /* GetUserResponse.swift */; };
+		9E525D8523FD48C5002292DD /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E525D8423FD48C5002292DD /* NetworkError.swift */; };
 		9ECFB8B323FD0D7C0094C702 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFB8B223FD0D7C0094C702 /* AppDelegate.swift */; };
 		9ECFB8B523FD0D7C0094C702 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFB8B423FD0D7C0094C702 /* SceneDelegate.swift */; };
-		9ECFB8B723FD0D7C0094C702 /* FirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFB8B623FD0D7C0094C702 /* FirstVC.swift */; };
+		9ECFB8B723FD0D7C0094C702 /* UsersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFB8B623FD0D7C0094C702 /* UsersVC.swift */; };
 		9ECFB8BA23FD0D7C0094C702 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9ECFB8B823FD0D7C0094C702 /* Main.storyboard */; };
 		9ECFB8BC23FD0D7F0094C702 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ECFB8BB23FD0D7F0094C702 /* Assets.xcassets */; };
 		9ECFB8BF23FD0D7F0094C702 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9ECFB8BD23FD0D7F0094C702 /* LaunchScreen.storyboard */; };
-		9ECFB8C723FD1A8C0094C702 /* SecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFB8C623FD1A8C0094C702 /* SecondVC.swift */; };
+		9ECFB8C723FD1A8C0094C702 /* PhotosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFB8C623FD1A8C0094C702 /* PhotosVC.swift */; };
 		9ECFB8C923FD1B700094C702 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFB8C823FD1B700094C702 /* NetworkService.swift */; };
-		9ECFB8CB23FD1E3D0094C702 /* TableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFB8CA23FD1E3D0094C702 /* TableViewCellModel.swift */; };
 		9ECFB8D223FD20790094C702 /* UsersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFB8D123FD20790094C702 /* UsersModel.swift */; };
 		9ECFB8D423FD208F0094C702 /* AlbumsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFB8D323FD208F0094C702 /* AlbumsModel.swift */; };
 		9ECFB8D623FD209D0094C702 /* PhotosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFB8D523FD209D0094C702 /* PhotosModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9E525D7C23FD2896002292DD /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
+		9E525D7E23FD29B5002292DD /* UsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
+		9E525D8023FD468F002292DD /* UsersNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersNetworkService.swift; sourceTree = "<group>"; };
+		9E525D8223FD4822002292DD /* GetUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserResponse.swift; sourceTree = "<group>"; };
+		9E525D8423FD48C5002292DD /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		9ECFB8AF23FD0D7C0094C702 /* TeskTaskWorkWithNetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeskTaskWorkWithNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ECFB8B223FD0D7C0094C702 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9ECFB8B423FD0D7C0094C702 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9ECFB8B623FD0D7C0094C702 /* FirstVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstVC.swift; sourceTree = "<group>"; };
+		9ECFB8B623FD0D7C0094C702 /* UsersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersVC.swift; sourceTree = "<group>"; };
 		9ECFB8B923FD0D7C0094C702 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9ECFB8BB23FD0D7F0094C702 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9ECFB8BE23FD0D7F0094C702 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9ECFB8C023FD0D7F0094C702 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9ECFB8C623FD1A8C0094C702 /* SecondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondVC.swift; sourceTree = "<group>"; };
+		9ECFB8C623FD1A8C0094C702 /* PhotosVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosVC.swift; sourceTree = "<group>"; };
 		9ECFB8C823FD1B700094C702 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		9ECFB8CA23FD1E3D0094C702 /* TableViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellModel.swift; sourceTree = "<group>"; };
 		9ECFB8D123FD20790094C702 /* UsersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersModel.swift; sourceTree = "<group>"; };
 		9ECFB8D323FD208F0094C702 /* AlbumsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsModel.swift; sourceTree = "<group>"; };
 		9ECFB8D523FD209D0094C702 /* PhotosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosModel.swift; sourceTree = "<group>"; };
@@ -81,6 +89,9 @@
 			isa = PBXGroup;
 			children = (
 				9ECFB8C823FD1B700094C702 /* NetworkService.swift */,
+				9E525D8023FD468F002292DD /* UsersNetworkService.swift */,
+				9E525D8223FD4822002292DD /* GetUserResponse.swift */,
+				9E525D8423FD48C5002292DD /* NetworkError.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -97,7 +108,6 @@
 		9ECFB8CE23FD1E5F0094C702 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9ECFB8CA23FD1E3D0094C702 /* TableViewCellModel.swift */,
 				9ECFB8D123FD20790094C702 /* UsersModel.swift */,
 				9ECFB8D323FD208F0094C702 /* AlbumsModel.swift */,
 				9ECFB8D523FD209D0094C702 /* PhotosModel.swift */,
@@ -108,8 +118,10 @@
 		9ECFB8CF23FD1E7D0094C702 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9ECFB8B623FD0D7C0094C702 /* FirstVC.swift */,
-				9ECFB8C623FD1A8C0094C702 /* SecondVC.swift */,
+				9ECFB8B623FD0D7C0094C702 /* UsersVC.swift */,
+				9ECFB8C623FD1A8C0094C702 /* PhotosVC.swift */,
+				9E525D7E23FD29B5002292DD /* UsersTableViewCell.swift */,
+				9E525D7C23FD2896002292DD /* PhotosTableViewCell.swift */,
 				9ECFB8B223FD0D7C0094C702 /* AppDelegate.swift */,
 				9ECFB8B423FD0D7C0094C702 /* SceneDelegate.swift */,
 			);
@@ -196,14 +208,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E525D7F23FD29B5002292DD /* UsersTableViewCell.swift in Sources */,
 				9ECFB8D623FD209D0094C702 /* PhotosModel.swift in Sources */,
-				9ECFB8B723FD0D7C0094C702 /* FirstVC.swift in Sources */,
+				9ECFB8B723FD0D7C0094C702 /* UsersVC.swift in Sources */,
 				9ECFB8D423FD208F0094C702 /* AlbumsModel.swift in Sources */,
+				9E525D8123FD468F002292DD /* UsersNetworkService.swift in Sources */,
 				9ECFB8B323FD0D7C0094C702 /* AppDelegate.swift in Sources */,
 				9ECFB8C923FD1B700094C702 /* NetworkService.swift in Sources */,
+				9E525D8323FD4822002292DD /* GetUserResponse.swift in Sources */,
+				9E525D7D23FD2896002292DD /* PhotosTableViewCell.swift in Sources */,
 				9ECFB8D223FD20790094C702 /* UsersModel.swift in Sources */,
-				9ECFB8CB23FD1E3D0094C702 /* TableViewCellModel.swift in Sources */,
-				9ECFB8C723FD1A8C0094C702 /* SecondVC.swift in Sources */,
+				9E525D8523FD48C5002292DD /* NetworkError.swift in Sources */,
+				9ECFB8C723FD1A8C0094C702 /* PhotosVC.swift in Sources */,
 				9ECFB8B523FD0D7C0094C702 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,7 +366,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WJR74JV9LN;
-				INFOPLIST_FILE = TeskTaskWorkWithNetwork/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TeskTaskWorkWithNetwork/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -368,7 +384,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WJR74JV9LN;
-				INFOPLIST_FILE = TeskTaskWorkWithNetwork/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TeskTaskWorkWithNetwork/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
