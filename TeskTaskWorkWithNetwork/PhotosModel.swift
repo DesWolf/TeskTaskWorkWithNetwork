@@ -16,3 +16,4 @@ struct PhotosModel: Decodable {
     let url: String?
     let thumbnailUrl: String?
 }
+

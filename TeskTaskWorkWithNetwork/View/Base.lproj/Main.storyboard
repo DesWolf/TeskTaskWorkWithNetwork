@@ -41,7 +41,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="userNameLabel" destination="ESg-4h-XH6" id="NMy-1l-fvs"/>
-                                            <segue destination="wIb-fp-J9N" kind="show" id="Yc1-f6-Luu"/>
+                                            <segue destination="wIb-fp-J9N" kind="show" identifier="photosVC" id="Yc1-f6-Luu"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -96,8 +96,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="vHs-fu-0Cx">
+                                                    <rect key="frame" x="150" y="150" width="20" height="20"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="vHs-fu-0Cx" firstAttribute="centerX" secondItem="H8G-Pq-C4q" secondAttribute="centerX" id="bVr-UT-gKv"/>
+                                                <constraint firstItem="vHs-fu-0Cx" firstAttribute="centerY" secondItem="H8G-Pq-C4q" secondAttribute="centerY" id="fCe-qB-tXk"/>
                                                 <constraint firstItem="QE9-vB-P2I" firstAttribute="top" secondItem="H8G-Pq-C4q" secondAttribute="bottom" constant="14" id="sKI-bC-FxC"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -109,8 +114,9 @@
                                             <constraint firstItem="QE9-vB-P2I" firstAttribute="leading" secondItem="b23-J3-faH" secondAttribute="leading" constant="15" id="yoA-eh-w2R"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="photoImage" destination="H8G-Pq-C4q" id="jbu-Xq-d7O"/>
-                                            <outlet property="photoTitle" destination="QE9-vB-P2I" id="iGS-dw-DBx"/>
+                                            <outlet property="activityIndicator" destination="vHs-fu-0Cx" id="aIq-h4-66m"/>
+                                            <outlet property="photoImage" destination="H8G-Pq-C4q" id="H4H-uP-l91"/>
+                                            <outlet property="photoTitle" destination="QE9-vB-P2I" id="q26-IG-2tT"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -132,7 +138,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rmB-q7-QYw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1543.125" y="127.8169014084507"/>
+            <point key="canvasLocation" x="1618" y="129"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="36u-Gf-cVT">

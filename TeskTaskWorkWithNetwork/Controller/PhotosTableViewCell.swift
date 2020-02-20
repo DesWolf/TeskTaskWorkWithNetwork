@@ -10,19 +10,12 @@ import UIKit
 
 class PhotosTableViewCell: UITableViewCell {
 
-    
     @IBOutlet var photoImage: UIImageView!
     @IBOutlet var photoTitle: UILabel!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+    func configere( with photo: PhotosModel) {
+        self.photoTitle.text = photo.thumbnailUrl
+         
+     }
 }

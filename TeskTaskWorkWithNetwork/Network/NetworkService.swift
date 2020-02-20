@@ -8,26 +8,32 @@
 
 import Foundation
 
-enum NetworkEnvironment: String {
-    case users
-    case albums
-    case photos
-}
-
 
 class NetworkService {
     
-        static let url = ""
-    
-     static func fetchData(url: String, identifier: String, completion: @escaping (Any) -> ()) {
+     static func fetchData(identifier: String, completion: @escaping (Any) -> ()) {
         
-            guard let url = URL(string: url) else { return }
+  
+        guard let url = URL(string: Api.currentUrl(identifier: identifier)) else { return }
+        
             URLSession.shared.dataTask(with: url) { (data, responce, error) in
                 guard let data = data else { return }
                 do {
                     let decoder = JSONDecoder()
-                    let jsonData = try decoder.decode([UsersModel].self, from: data)
-                    completion(jsonData)
+                    switch identifier {
+                    case "users":
+                        let jsonData = try decoder.decode([UsersModel].self, from: data)
+                        completion(jsonData)
+                    case "albums":
+                        let jsonData = try decoder.decode([AlbumsModel].self, from: data)
+                        completion(jsonData)
+                    case "photos":
+                        let jsonData = try decoder.decode([PhotosModel].self, from: data)
+                        completion(jsonData)
+                    default:
+                        break
+                    }
+
                 } catch let error {
                     print ("Error serialization JSON", error)
                 }
@@ -35,13 +41,3 @@ class NetworkService {
         }
 }
 
-extension NetworkEnvironment {
-    switch NetworkService. {
-        case users:
-            let url = "https://jsonplaceholder.typicode.com/users"
-        case albums:
-            let url = "https://jsonplaceholder.typicode.com/albums"
-        case photos:
-            let url = "https://jsonplaceholder.typicode.com/photos"
-    }
-}

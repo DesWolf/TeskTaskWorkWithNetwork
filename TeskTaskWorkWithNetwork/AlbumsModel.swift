@@ -13,4 +13,6 @@ struct AlbumsModel: Decodable {
     let userId: Int?
     let id: Int?
     let title: String?
+        
 }
+
