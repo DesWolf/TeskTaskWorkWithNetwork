@@ -15,7 +15,35 @@ class PhotosTableViewCell: UITableViewCell {
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
     func configere( with photo: PhotosModel) {
-        self.photoTitle.text = photo.thumbnailUrl
-         
+       
+        
+        activityIndicator.isHidden = true
+        activityIndicator.hidesWhenStopped = true
+        
+        self.photoTitle.text = photo.title
+        self.fetchImage(imageUrl: photo.thumbnailUrl ?? "")
+       
+        
      }
+    
+    func fetchImage(imageUrl: String) {
+    
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+        
+        NetworkImage.fetchImage(imageUrl: imageUrl) { (image) in
+        
+        DispatchQueue.main.async {
+            self.photoImage.image = image as? UIImage
+            self.activityIndicator.stopAnimating()
+        }
+        }
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageView?.image = nil
+//              self.accessoryType = .none
+    }
 }
+

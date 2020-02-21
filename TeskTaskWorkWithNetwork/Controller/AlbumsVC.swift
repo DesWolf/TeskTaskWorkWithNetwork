@@ -14,8 +14,8 @@ class AlbumsVC {
 
     func fetchData(identifier: String) {
 
-        let queue = DispatchQueue.global(qos: .background)
-        queue.async {
+        let albumQueue = DispatchQueue.global(qos: .background)
+        albumQueue.async {
                   
             NetworkService.fetchData(identifier: identifier) { (albums) in
                   

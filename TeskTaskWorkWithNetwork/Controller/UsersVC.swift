@@ -14,14 +14,6 @@ class UsersVC: UIViewController {
     
     var users = [UsersModel]()
     var albums = AlbumsVC()
-    var currentAlbums:[AlbumsModel] = []
-    
-    
-//    required init?(coder: NSCoder) {
-//        currentAlbums.append(AlbumsModel(userId: 0, id: 0, title: ""))
-//        fatalError("init(coder:) has not been implemented")
-//    }
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +22,6 @@ class UsersVC: UIViewController {
         tableView.delegate = self
         
         fetchData(identifier: "users")
-        
         albums.fetchData(identifier: "albums")
 
     }
@@ -58,13 +49,11 @@ extension UsersVC {
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
             let user = users[indexPath.row]
             let photosVC = segue.destination as! PhotosVC
-                
-            let filterAlbums = albums.albums.filter{ $0.userId == user.id }
             
-            photosVC.filtredAlbums = filterAlbums
+            let filterAlbums = albums.albums.filter{ $0.userId == user.id }
+            photosVC.numberOfAlbums = filterAlbums.compactMap { $0.id }
         }
     }
-    
 }
 
 // MARK: TableViewDelagate & TableViewDataSource
@@ -79,6 +68,7 @@ extension UsersVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "usersVCCell", for: indexPath) as! UsersTableViewCell
+        
         let user = users[indexPath.row]
        
         cell.configere(with: user)
