@@ -14,7 +14,5 @@ class UsersTableViewCell: UITableViewCell {
     
     func configere( with user: UsersModel) {
         self.userNameLabel.text = user.name
-        
     }
-
 }

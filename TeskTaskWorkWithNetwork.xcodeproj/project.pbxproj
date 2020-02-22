@@ -12,8 +12,9 @@
 		9E525D7F23FD29B5002292DD /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E525D7E23FD29B5002292DD /* UsersTableViewCell.swift */; };
 		9E53CB7223FE3FB2008B04F9 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E53CB7123FE3FB2008B04F9 /* API.swift */; };
 		9E53CB7423FE4306008B04F9 /* AlbumsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E53CB7323FE4306008B04F9 /* AlbumsVC.swift */; };
+		9E6DC8AC24012385009482E2 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6DC8AB24012385009482E2 /* UserViewModel.swift */; };
+		9E6DC8AE24012485009482E2 /* UserViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6DC8AD24012485009482E2 /* UserViewModelType.swift */; };
 		9ECFB8B323FD0D7C0094C702 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFB8B223FD0D7C0094C702 /* AppDelegate.swift */; };
-		9ECFB8B523FD0D7C0094C702 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFB8B423FD0D7C0094C702 /* SceneDelegate.swift */; };
 		9ECFB8B723FD0D7C0094C702 /* UsersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFB8B623FD0D7C0094C702 /* UsersVC.swift */; };
 		9ECFB8BA23FD0D7C0094C702 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9ECFB8B823FD0D7C0094C702 /* Main.storyboard */; };
 		9ECFB8BC23FD0D7F0094C702 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ECFB8BB23FD0D7F0094C702 /* Assets.xcassets */; };
@@ -23,7 +24,7 @@
 		9ECFB8D223FD20790094C702 /* UsersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFB8D123FD20790094C702 /* UsersModel.swift */; };
 		9ECFB8D423FD208F0094C702 /* AlbumsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFB8D323FD208F0094C702 /* AlbumsModel.swift */; };
 		9ECFB8D623FD209D0094C702 /* PhotosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFB8D523FD209D0094C702 /* PhotosModel.swift */; };
-		9ED1E50623FFD5D800989696 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1E50523FFD5D800989696 /* File.swift */; };
+		9ED1E50623FFD5D800989696 /* Willbe workwithCahe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1E50523FFD5D800989696 /* Willbe workwithCahe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,9 +33,10 @@
 		9E525D7E23FD29B5002292DD /* UsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
 		9E53CB7123FE3FB2008B04F9 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		9E53CB7323FE4306008B04F9 /* AlbumsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsVC.swift; sourceTree = "<group>"; };
+		9E6DC8AB24012385009482E2 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		9E6DC8AD24012485009482E2 /* UserViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModelType.swift; sourceTree = "<group>"; };
 		9ECFB8AF23FD0D7C0094C702 /* TeskTaskWorkWithNetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeskTaskWorkWithNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ECFB8B223FD0D7C0094C702 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9ECFB8B423FD0D7C0094C702 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9ECFB8B623FD0D7C0094C702 /* UsersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersVC.swift; sourceTree = "<group>"; };
 		9ECFB8B923FD0D7C0094C702 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9ECFB8BB23FD0D7F0094C702 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -45,7 +47,7 @@
 		9ECFB8D123FD20790094C702 /* UsersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersModel.swift; sourceTree = "<group>"; };
 		9ECFB8D323FD208F0094C702 /* AlbumsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsModel.swift; sourceTree = "<group>"; };
 		9ECFB8D523FD209D0094C702 /* PhotosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosModel.swift; sourceTree = "<group>"; };
-		9ED1E50523FFD5D800989696 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		9ED1E50523FFD5D800989696 /* Willbe workwithCahe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Willbe workwithCahe.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E6DC8AA24012367009482E2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9E6DC8AB24012385009482E2 /* UserViewModel.swift */,
+				9E6DC8AD24012485009482E2 /* UserViewModelType.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		9ECFB8A623FD0D7C0094C702 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +89,7 @@
 		9ECFB8B123FD0D7C0094C702 /* TeskTaskWorkWithNetwork */ = {
 			isa = PBXGroup;
 			children = (
+				9E6DC8AA24012367009482E2 /* ViewModel */,
 				9ECFB8CF23FD1E7D0094C702 /* Controller */,
 				9ECFB8CD23FD1E560094C702 /* View */,
 				9ECFB8CC23FD1E4A0094C702 /* Network */,
@@ -91,8 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				9ECFB8C823FD1B700094C702 /* NetworkService.swift */,
-				9E53CB7123FE3FB2008B04F9 /* API.swift */,
 				9E3AE58323FF915900C72626 /* NetworkImage.swift */,
+				9E53CB7123FE3FB2008B04F9 /* API.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -124,9 +136,8 @@
 				9E53CB7323FE4306008B04F9 /* AlbumsVC.swift */,
 				9E525D7E23FD29B5002292DD /* UsersTableViewCell.swift */,
 				9E525D7C23FD2896002292DD /* PhotosTableViewCell.swift */,
-				9ED1E50523FFD5D800989696 /* File.swift */,
+				9ED1E50523FFD5D800989696 /* Willbe workwithCahe.swift */,
 				9ECFB8B223FD0D7C0094C702 /* AppDelegate.swift */,
-				9ECFB8B423FD0D7C0094C702 /* SceneDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -216,15 +227,16 @@
 				9ECFB8D623FD209D0094C702 /* PhotosModel.swift in Sources */,
 				9ECFB8B723FD0D7C0094C702 /* UsersVC.swift in Sources */,
 				9ECFB8D423FD208F0094C702 /* AlbumsModel.swift in Sources */,
+				9E6DC8AC24012385009482E2 /* UserViewModel.swift in Sources */,
 				9ECFB8B323FD0D7C0094C702 /* AppDelegate.swift in Sources */,
 				9E3AE58423FF915900C72626 /* NetworkImage.swift in Sources */,
+				9E6DC8AE24012485009482E2 /* UserViewModelType.swift in Sources */,
 				9E53CB7423FE4306008B04F9 /* AlbumsVC.swift in Sources */,
 				9ECFB8C923FD1B700094C702 /* NetworkService.swift in Sources */,
-				9ED1E50623FFD5D800989696 /* File.swift in Sources */,
+				9ED1E50623FFD5D800989696 /* Willbe workwithCahe.swift in Sources */,
 				9E525D7D23FD2896002292DD /* PhotosTableViewCell.swift in Sources */,
 				9ECFB8D223FD20790094C702 /* UsersModel.swift in Sources */,
 				9ECFB8C723FD1A8C0094C702 /* PhotosVC.swift in Sources */,
-				9ECFB8B523FD0D7C0094C702 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +383,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WJR74JV9LN;
 				INFOPLIST_FILE = "$(SRCROOT)/TeskTaskWorkWithNetwork/SupportFiles/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -378,7 +391,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "-.TeskTaskWorkWithNetwork";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -389,6 +402,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WJR74JV9LN;
 				INFOPLIST_FILE = "$(SRCROOT)/TeskTaskWorkWithNetwork/SupportFiles/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -396,7 +410,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "-.TeskTaskWorkWithNetwork";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

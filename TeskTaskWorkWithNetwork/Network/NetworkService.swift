@@ -13,7 +13,6 @@ class NetworkService {
     
      static func fetchData(identifier: String, completion: @escaping (Any) -> ()) {
         
-  
         guard let url = URL(string: Api.currentUrl(identifier: identifier)) else { return }
         
             URLSession.shared.dataTask(with: url) { (data, responce, error) in

@@ -8,21 +8,30 @@
 
 import UIKit
 
+//protocol IndexTableRow: AnyObject {
+//    var indexTableRow: Int { get }
+//}
+
 class PhotosTableViewCell: UITableViewCell {
 
     @IBOutlet var photoImage: UIImageView!
     @IBOutlet var photoTitle: UILabel!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet var backView: UIView!
+    @IBOutlet var frontView: UIView!
+   
+//    var cache:NSCache<AnyObject, AnyObject>!
+//    private let cache = ImageCache()
     
     func configere( with photo: PhotosModel) {
-       
+        
         
         activityIndicator.isHidden = true
         activityIndicator.hidesWhenStopped = true
         
         self.photoTitle.text = photo.title
-        self.fetchImage(imageUrl: photo.thumbnailUrl ?? "")
-       
+        self.fetchImage(imageUrl: photo.url ?? "")
+//        self.cache = NSCache()
         
      }
     
@@ -34,16 +43,18 @@ class PhotosTableViewCell: UITableViewCell {
         NetworkImage.fetchImage(imageUrl: imageUrl) { (image) in
         
         DispatchQueue.main.async {
+            
+            
             self.photoImage.image = image as? UIImage
+          //  self.cache.setObject(photoImage, forKey: (indexPath as NSIndexPath).row as AnyObject)
             self.activityIndicator.stopAnimating()
         }
-        }
-    }
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        imageView?.image = nil
-//              self.accessoryType = .none
     }
 }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        photoImage?.image = nil
+//              NetworkService.fetchData.cancelrequest()
+    }
+}
