@@ -1,0 +1,28 @@
+//
+//  AlbumVC.swift
+//  TeskTaskWorkWithNetwork
+//
+//  Created by Максим Окунеев on 2/20/20.
+//  Copyright © 2020 Максим Окунеев. All rights reserved.
+//
+
+import Foundation
+
+class AlbumsVC {
+    
+    var albums = [AlbumsModel]()
+    
+    func fetchData(identifier: String) {
+        
+        let albumQueue = DispatchQueue.global(qos: .background)
+        albumQueue.async {
+            
+            NetworkService.fetchData(identifier: identifier) { (albums) in
+                
+                DispatchQueue.main.async {
+                    self.albums = albums as! [AlbumsModel]
+                }
+            }
+        }
+    }
+}
