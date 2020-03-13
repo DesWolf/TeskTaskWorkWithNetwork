@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Tf4-5v-75I">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,22 +13,22 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="UsersVC" customModule="TeskTaskWorkWithNetwork" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YI2-x3-Yuc">
-                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="usersVCCell" id="FO3-Ks-GVz" customClass="UsersTableViewCell" customModule="TeskTaskWorkWithNetwork" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FO3-Ks-GVz" id="ERO-Kh-wDT">
-                                            <rect key="frame" x="0.0" y="0.0" width="574" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="294" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ESg-4h-XH6">
-                                                    <rect key="frame" x="15" y="11.5" width="551" height="20.5"/>
+                                                    <rect key="frame" x="15" y="11.5" width="271" height="20.5"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -45,12 +47,17 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DoQ-5J-d5Y">
+                                <rect key="frame" x="150" y="296" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="YI2-x3-Yuc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="44" id="9RV-VJ-krr"/>
+                            <constraint firstItem="DoQ-5J-d5Y" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="KsU-dj-i0C"/>
                             <constraint firstItem="YI2-x3-Yuc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Lx3-vD-KhY"/>
                             <constraint firstAttribute="bottom" secondItem="YI2-x3-Yuc" secondAttribute="bottom" id="T2O-Mh-FGh"/>
+                            <constraint firstItem="DoQ-5J-d5Y" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="WeW-NC-F6C"/>
                             <constraint firstItem="YI2-x3-Yuc" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ypc-Ob-Qzd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -65,6 +72,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="YI2-x3-Yuc" id="3Ca-F2-KB8"/>
+                        <outlet property="usersActivityIndicator" destination="DoQ-5J-d5Y" id="NuB-fm-4SS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -76,37 +84,37 @@
             <objects>
                 <viewController id="wIb-fp-J9N" customClass="PhotosVC" customModule="TeskTaskWorkWithNetwork" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3nR-hP-KE3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dz3-UW-hfD">
-                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="photosVCCell" rowHeight="400" id="b23-J3-faH" customClass="PhotosTableViewCell" customModule="TeskTaskWorkWithNetwork" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="400"/>
+                                        <rect key="frame" x="0.0" y="28" width="320" height="400"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b23-J3-faH" id="iWe-pR-A9J">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IV6-Hb-m89">
-                                                    <rect key="frame" x="8" y="8" width="585" height="380"/>
+                                                    <rect key="frame" x="8" y="8" width="305" height="380"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4GG-HP-HjK">
-                                                            <rect key="frame" x="0.0" y="0.0" width="583" height="378"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="303" height="378"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H8G-Pq-C4q">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="585" height="353"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="305" height="305"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="H8G-Pq-C4q" secondAttribute="height" multiplier="1:1" id="AoF-1h-Vdp"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="vHs-fu-0Cx">
-                                                                    <rect key="frame" x="282.5" y="166" width="20" height="20"/>
+                                                                    <rect key="frame" x="142.5" y="142" width="20" height="20"/>
                                                                 </activityIndicatorView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QE9-vB-P2I">
-                                                                    <rect key="frame" x="10" y="361" width="563" height="0.0"/>
+                                                                    <rect key="frame" x="10" y="313" width="283" height="48"/>
                                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -142,9 +150,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="activityIndicator" destination="vHs-fu-0Cx" id="aIq-h4-66m"/>
-                                            <outlet property="backView" destination="IV6-Hb-m89" id="y8f-Vm-XcP"/>
-                                            <outlet property="frontView" destination="4GG-HP-HjK" id="isn-oZ-tnk"/>
+                                            <outlet property="photoActivityIndicator" destination="vHs-fu-0Cx" id="aIq-h4-66m"/>
+                                            <outlet property="photoBackView" destination="IV6-Hb-m89" id="y8f-Vm-XcP"/>
+                                            <outlet property="photoFrontView" destination="4GG-HP-HjK" id="isn-oZ-tnk"/>
                                             <outlet property="photoImageView" destination="H8G-Pq-C4q" id="H4H-uP-l91"/>
                                             <outlet property="photoTitle" destination="QE9-vB-P2I" id="q26-IG-2tT"/>
                                         </connections>

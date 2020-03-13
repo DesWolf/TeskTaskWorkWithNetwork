@@ -56,7 +56,7 @@ extension PhotosVC: UITableViewDataSource {
         cell.configure(with: photo)
         
         let borderColor: UIColor =  .init(red: 240/256, green: 240/256, blue: 240/256, alpha: 1)
-        cell.frontView.layer.borderColor = borderColor.cgColor
+        cell.photoFrontView.layer.borderColor = borderColor.cgColor
         
         return cell
     }

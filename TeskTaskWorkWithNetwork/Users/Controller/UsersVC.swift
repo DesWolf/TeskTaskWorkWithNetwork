@@ -11,6 +11,7 @@ import UIKit
 class UsersVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var usersActivityIndicator: UIActivityIndicatorView!
     
     private var users = [UsersModel]()
     private var albums = [AlbumsModel]()
@@ -21,10 +22,18 @@ class UsersVC: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
+        usersActivityIndicator.isHidden = true
+        usersActivityIndicator.hidesWhenStopped = true
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        usersActivityIndicator.isHidden = false
+        usersActivityIndicator.startAnimating()
         fetchUsersData()
     }
     
     @IBAction func updateUsers(_ sender: Any) {
+        usersActivityIndicator.isHidden = false
+        usersActivityIndicator.startAnimating()
         fetchUsersData()
     }
 }
@@ -37,6 +46,7 @@ extension UsersVC {
             self.fetchAlbumsData()
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.usersActivityIndicator.stopAnimating()
             }
         }
     }

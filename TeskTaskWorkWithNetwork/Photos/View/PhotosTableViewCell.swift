@@ -12,37 +12,46 @@ class PhotosTableViewCell: UITableViewCell {
     
     @IBOutlet var photoImageView: UIImageView!
     @IBOutlet var photoTitle: UILabel!
-    @IBOutlet var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet var backView: UIView!
-    @IBOutlet var frontView: UIView!
+    @IBOutlet var photoActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet var photoBackView: UIView!
+    @IBOutlet var photoFrontView: UIView!
+    
+    var imageCache = [String: UIImage]()
     var currentImageUrl = ""
+    
     
     func configure( with photo: PhotosModel) {
         
-        activityIndicator.isHidden = true
-        activityIndicator.hidesWhenStopped = true
+        photoActivityIndicator.isHidden = true
+        photoActivityIndicator.hidesWhenStopped = true
         
-        self.frontView.layer.masksToBounds = true
-        self.frontView.layer.cornerRadius = 10
-        self.frontView.layer.borderWidth = 1
+        self.photoFrontView.layer.masksToBounds = true
+        self.photoFrontView.layer.cornerRadius = 10
+        self.photoFrontView.layer.borderWidth = 1
         
-        self.photoTitle.text = photo.title
-        self.currentImageUrl = photo.url ?? ""
         self.fetchImage(imageUrl: photo.url ?? "")
+        
+        if let image = imageCache[photo.url ?? ""] {
+            photoImageView.image = image
+        } else {
+            self.currentImageUrl = photo.url ?? ""
+            self.fetchImage(imageUrl: photo.url ?? "")
+        }
     }
     
     // MARK: Network
     private func fetchImage(imageUrl: String) {
         
-        activityIndicator.isHidden = false
-        activityIndicator.startAnimating()
+        photoActivityIndicator.isHidden = false
+        photoActivityIndicator.startAnimating()
         
         NetworkService.fetchImage(imageUrl: imageUrl) { (image) in
             DispatchQueue.main.async {
                 if self.currentImageUrl == imageUrl {
+                    self.imageCache[imageUrl] = image as? UIImage
                     self.photoImageView.image = image as? UIImage
                 }
-                self.activityIndicator.stopAnimating()
+                self.photoActivityIndicator.stopAnimating()
             }
         }
     }
