@@ -15,14 +15,16 @@ class PhotosVC: UIViewController{
     var albumsIDs = [Int]()
     private var photos = [PhotosModel]()
     private var filteredPhotos = [PhotosModel]()
+    let memoryCapacity = 500 * 1024 * 1024
+    let diskCapacity = 500 * 1024 * 1024
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.dataSource = self
-        tableView.delegate = self
-        
+        let urlCache = URLCache(memoryCapacity: memoryCapacity, diskCapacity: diskCapacity, diskPath: "diskPath")
+        URLCache.shared = urlCache
         fetchPhotosData()
+        
     }
     // MARK: Network
     private func fetchPhotosData() {

@@ -46,6 +46,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="GWG-iq-tYo"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="wYU-rp-baz"/>
+                                </connections>
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DoQ-5J-d5Y">
                                 <rect key="frame" x="150" y="296" width="20" height="20"/>
@@ -158,6 +162,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="wIb-fp-J9N" id="YHE-Ml-oEy"/>
+                                    <outlet property="delegate" destination="wIb-fp-J9N" id="LR2-sV-tmU"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

@@ -19,12 +19,10 @@ class UsersVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.dataSource = self
-        tableView.delegate = self
-        
         usersActivityIndicator.isHidden = true
         usersActivityIndicator.hidesWhenStopped = true
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         usersActivityIndicator.isHidden = false
         usersActivityIndicator.startAnimating()

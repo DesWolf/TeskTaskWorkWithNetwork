@@ -16,7 +16,7 @@ class PhotosTableViewCell: UITableViewCell {
     @IBOutlet var photoBackView: UIView!
     @IBOutlet var photoFrontView: UIView!
     
-    var imageCache = [String: UIImage]()
+//    var imageCache = [String: UIImage]()
     var currentImageUrl = ""
     
     
@@ -31,12 +31,12 @@ class PhotosTableViewCell: UITableViewCell {
         
         self.fetchImage(imageUrl: photo.url ?? "")
         
-        if let image = imageCache[photo.url ?? ""] {
-            photoImageView.image = image
-        } else {
+//        if let image = imageCache[photo.url ?? ""] {
+//            photoImageView.image = image
+//        } else {
             self.currentImageUrl = photo.url ?? ""
             self.fetchImage(imageUrl: photo.url ?? "")
-        }
+//        }
     }
     
     // MARK: Network
@@ -48,7 +48,7 @@ class PhotosTableViewCell: UITableViewCell {
         NetworkService.fetchImage(imageUrl: imageUrl) { (image) in
             DispatchQueue.main.async {
                 if self.currentImageUrl == imageUrl {
-                    self.imageCache[imageUrl] = image as? UIImage
+//                    self.imageCache[imageUrl] = image as? UIImage
                     self.photoImageView.image = image as? UIImage
                 }
                 self.photoActivityIndicator.stopAnimating()
