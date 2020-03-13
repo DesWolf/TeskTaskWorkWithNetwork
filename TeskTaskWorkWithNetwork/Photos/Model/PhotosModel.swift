@@ -9,7 +9,7 @@
 import Foundation
 
 struct PhotosModel: Decodable {
-    
+
     let albumId: Int?
     let id: Int?
     let title: String?

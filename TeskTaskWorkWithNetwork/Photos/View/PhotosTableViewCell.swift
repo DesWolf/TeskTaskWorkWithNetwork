@@ -10,22 +10,25 @@ import UIKit
 
 class PhotosTableViewCell: UITableViewCell {
     
-    @IBOutlet var photoImage: UIImageView!
+    @IBOutlet var photoImageView: UIImageView!
     @IBOutlet var photoTitle: UILabel!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var backView: UIView!
     @IBOutlet var frontView: UIView!
     var currentImageUrl = ""
     
-    func configere( with photo: PhotosModel) {
+    func configure( with photo: PhotosModel) {
         
         activityIndicator.isHidden = true
         activityIndicator.hidesWhenStopped = true
         
+        self.frontView.layer.masksToBounds = true
+        self.frontView.layer.cornerRadius = 10
+        self.frontView.layer.borderWidth = 1
+        
         self.photoTitle.text = photo.title
         self.currentImageUrl = photo.url ?? ""
         self.fetchImage(imageUrl: photo.url ?? "")
-        
     }
     
     // MARK: Network
@@ -34,20 +37,18 @@ class PhotosTableViewCell: UITableViewCell {
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
         
-        NetworkImage.fetchImage(imageUrl: imageUrl) { (image) in
-            
+        NetworkService.fetchImage(imageUrl: imageUrl) { (image) in
             DispatchQueue.main.async {
                 if self.currentImageUrl == imageUrl {
-                self.photoImage.image = image as? UIImage
-                self.activityIndicator.stopAnimating()
+                    self.photoImageView.image = image as? UIImage
                 }
+                self.activityIndicator.stopAnimating()
             }
         }
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        
-        photoImage.image = nil
+        photoImageView.image = nil
     }
 }

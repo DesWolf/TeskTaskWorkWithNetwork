@@ -21,6 +21,7 @@ struct UsersModel: Decodable {
 }
 
 struct Address: Decodable {
+   
     let street: String?
     let suite: String?
     let city: String?
@@ -29,6 +30,7 @@ struct Address: Decodable {
 }
 
 struct Geo: Decodable {
+   
     let lat: String?
     let lng: String?
 }

@@ -12,9 +12,9 @@ class PhotosVC: UIViewController{
     
     @IBOutlet weak var tableView: UITableView!
     
-    var numberOfAlbums = [Int]()
+    var albumsIDs = [Int]()
     private var photos = [PhotosModel]()
-    private var filtredPhotos = [PhotosModel]()
+    private var filteredPhotos = [PhotosModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,16 +22,15 @@ class PhotosVC: UIViewController{
         tableView.dataSource = self
         tableView.delegate = self
         
-        fetchData(identifier: "photos")
+        fetchPhotosData()
     }
     // MARK: Network
-    private func fetchData(identifier: String) {
+    private func fetchPhotosData() {
         
-        NetworkService.fetchData(identifier: identifier) { (photos) in
-            self.photos = photos as! [PhotosModel]
-            
-            for index in 0..<self.numberOfAlbums.count {
-                self.filtredPhotos += self.photos.filter{ $0.albumId == self.numberOfAlbums[index]}
+        NetworkService.fetchPhotosData() { (jsonData) in
+            self.photos = jsonData
+            for index in 0..<self.albumsIDs.count {
+                self.filteredPhotos += self.photos.filter{ $0.albumId == self.albumsIDs[index]}
             }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -47,18 +46,14 @@ extension PhotosVC: UITableViewDelegate {
 extension PhotosVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filtredPhotos.count
+        return filteredPhotos.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "photosVCCell", for: indexPath) as! PhotosTableViewCell
-        let photo = filtredPhotos[indexPath.row]
-        cell.configere(with: photo)
-        
-        cell.frontView.layer.masksToBounds = true
-        cell.frontView.layer.cornerRadius = 10
-        cell.frontView.layer.borderWidth = 1
+        let photo = filteredPhotos[indexPath.row]
+        cell.configure(with: photo)
         
         let borderColor: UIColor =  .init(red: 240/256, green: 240/256, blue: 240/256, alpha: 1)
         cell.frontView.layer.borderColor = borderColor.cgColor

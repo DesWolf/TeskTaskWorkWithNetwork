@@ -13,36 +13,43 @@ class UsersVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     private var users = [UsersModel]()
-    private var albums = AlbumsVC()
+    private var albums = [AlbumsModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = 44;
         
-        fetchData(identifier: "users")
-        albums.fetchData(identifier: "albums")
+        fetchUsersData()
     }
-    // MARK: Network
-    private func fetchData(identifier: String) {
-        
-        NetworkService.fetchData(identifier: identifier) { (users) in
-            
-            self.users = users as! [UsersModel]
-            
+    
+    @IBAction func updateUsers(_ sender: Any) {
+        fetchUsersData()
+    }
+}
+
+// MARK: Network
+extension UsersVC {
+    private func fetchUsersData() {
+        NetworkService.fetchUsersData() { (jsonData) in
+            self.users = jsonData
+            self.fetchAlbumsData()
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
     }
     
-    @IBAction func updateUsers(_ sender: Any) {
-        fetchData(identifier: "users")
-        albums.fetchData(identifier: "albums")
+    private func fetchAlbumsData() {
+        NetworkService.fetchAlbumsData() { (jsonData) in
+            self.albums = jsonData
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
-    
 }
 
 // MARK: Navigation
@@ -55,9 +62,8 @@ extension UsersVC {
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
             let user = users[indexPath.row]
             let photosVC = segue.destination as! PhotosVC
-            
-            let filterAlbums = albums.albums.filter{ $0.userId == user.id }
-            photosVC.numberOfAlbums = filterAlbums.compactMap { $0.id }
+            let filterAlbums = albums.filter{ $0.userId == user.id }
+            photosVC.albumsIDs = filterAlbums.compactMap { $0.id }
         }
     }
 }
