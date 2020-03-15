@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="usersVCCell" id="FO3-Ks-GVz" customClass="UsersTableViewCell" customModule="TeskTaskWorkWithNetwork" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="usersVCCell" id="FO3-Ks-GVz" customClass="UsersTableViewCell" customModule="TeskTaskWorkWithNetwork" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FO3-Ks-GVz" id="ERO-Kh-wDT">
@@ -51,24 +51,18 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="wYU-rp-baz"/>
                                 </connections>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DoQ-5J-d5Y">
-                                <rect key="frame" x="150" y="296" width="20" height="20"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="YI2-x3-Yuc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="44" id="9RV-VJ-krr"/>
-                            <constraint firstItem="DoQ-5J-d5Y" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="KsU-dj-i0C"/>
                             <constraint firstItem="YI2-x3-Yuc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Lx3-vD-KhY"/>
                             <constraint firstAttribute="bottom" secondItem="YI2-x3-Yuc" secondAttribute="bottom" id="T2O-Mh-FGh"/>
-                            <constraint firstItem="DoQ-5J-d5Y" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="WeW-NC-F6C"/>
                             <constraint firstItem="YI2-x3-Yuc" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ypc-Ob-Qzd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Users" id="aMY-mZ-DTb">
-                        <barButtonItem key="leftBarButtonItem" image="update" id="Svb-hu-WNL">
-                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="Svb-hu-WNL">
                             <connections>
                                 <action selector="updateUsers:" destination="BYZ-38-t0r" id="Iac-pc-mFe"/>
                             </connections>
@@ -76,7 +70,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="YI2-x3-Yuc" id="3Ca-F2-KB8"/>
-                        <outlet property="usersActivityIndicator" destination="DoQ-5J-d5Y" id="NuB-fm-4SS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -205,7 +198,4 @@
             <point key="canvasLocation" x="131.8840579710145" y="128.57142857142856"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="update" width="48" height="48"/>
-    </resources>
 </document>

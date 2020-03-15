@@ -9,7 +9,7 @@
 import Foundation
 
 struct UsersModel: Decodable {
-    
+
     let id: Int?
     let name: String?
     let username: String?

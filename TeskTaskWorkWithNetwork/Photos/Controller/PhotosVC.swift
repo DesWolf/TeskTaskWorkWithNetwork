@@ -24,8 +24,8 @@ class PhotosVC: UIViewController{
         let urlCache = URLCache(memoryCapacity: memoryCapacity, diskCapacity: diskCapacity, diskPath: "diskPath")
         URLCache.shared = urlCache
         fetchPhotosData()
-        
     }
+    
     // MARK: Network
     private func fetchPhotosData() {
         

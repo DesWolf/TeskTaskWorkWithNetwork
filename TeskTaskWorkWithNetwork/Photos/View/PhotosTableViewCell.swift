@@ -16,12 +16,9 @@ class PhotosTableViewCell: UITableViewCell {
     @IBOutlet var photoBackView: UIView!
     @IBOutlet var photoFrontView: UIView!
     
-//    var imageCache = [String: UIImage]()
     var currentImageUrl = ""
     
-    
     func configure( with photo: PhotosModel) {
-        
         photoActivityIndicator.isHidden = true
         photoActivityIndicator.hidesWhenStopped = true
         
@@ -29,29 +26,22 @@ class PhotosTableViewCell: UITableViewCell {
         self.photoFrontView.layer.cornerRadius = 10
         self.photoFrontView.layer.borderWidth = 1
         
+        self.photoTitle.text = photo.title ?? ""
+        self.currentImageUrl = photo.url ?? ""
         self.fetchImage(imageUrl: photo.url ?? "")
-        
-//        if let image = imageCache[photo.url ?? ""] {
-//            photoImageView.image = image
-//        } else {
-            self.currentImageUrl = photo.url ?? ""
-            self.fetchImage(imageUrl: photo.url ?? "")
-//        }
     }
     
     // MARK: Network
     private func fetchImage(imageUrl: String) {
-        
         photoActivityIndicator.isHidden = false
         photoActivityIndicator.startAnimating()
         
         NetworkService.fetchImage(imageUrl: imageUrl) { (image) in
             DispatchQueue.main.async {
                 if self.currentImageUrl == imageUrl {
-//                    self.imageCache[imageUrl] = image as? UIImage
-                    self.photoImageView.image = image as? UIImage
+                    self.photoImageView.image = image
+                    self.photoActivityIndicator.stopAnimating()
                 }
-                self.photoActivityIndicator.stopAnimating()
             }
         }
     }

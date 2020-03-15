@@ -8,56 +8,71 @@
 
 import UIKit
 
-
 struct NetworkService {
     
     static func fetchUsersData(completion: @escaping ([UsersModel]) -> ()) {
-        
         guard let url = URL(string: "https://jsonplaceholder.typicode.com/users") else { return }
         URLSession.shared.dataTask(with: url) { (data, responce, error) in
-            guard let data = data else { return }
-            do {
-                let decoder = JSONDecoder()
-                let jsonData = try decoder.decode([UsersModel].self, from: data)
-                completion(jsonData)
-            } catch let error {
-                print ("Error serialization JSON", error)
+            if let data = data {
+                do {
+                    let decoder = JSONDecoder()
+                    let jsonData = try decoder.decode([UsersModel].self, from: data)
+                    completion(jsonData)
+                } catch let error {
+                    print ("Error serialization JSON", error)
+                    completion([])
+                }
+            } else {
+                DispatchQueue.main.async {
+                    networkAlert()
+                }
             }
         }.resume()
     }
     
     static func fetchAlbumsData(completion: @escaping ([AlbumsModel]) -> ()) {
-        
         guard let url = URL(string: "https://jsonplaceholder.typicode.com/albums") else { return }
         URLSession.shared.dataTask(with: url) { (data, responce, error) in
-            guard let data = data else { return }
-            do {
-                let decoder = JSONDecoder()
-                let jsonData = try decoder.decode([AlbumsModel].self, from: data)
-                completion(jsonData)
-            } catch let error {
-                print ("Error serialization JSON", error)
+            if let data = data {
+                do {
+                    let decoder = JSONDecoder()
+                    let jsonData = try decoder.decode([AlbumsModel].self, from: data)
+                    completion(jsonData)
+                } catch let error {
+                    print ("Error serialization JSON", error)
+                    completion([])
+                }
+            } else {
+                DispatchQueue.main.async {
+                    networkAlert()
+                }
             }
         }.resume()
     }
     
     static func fetchPhotosData(completion: @escaping ([PhotosModel]) -> ()) {
-        
         guard let url = URL(string: "https://jsonplaceholder.typicode.com/photos") else { return }
         URLSession.shared.dataTask(with: url) { (data, responce, error) in
-            guard let data = data else { return }
-            do {
-                let decoder = JSONDecoder()
-                let jsonData = try decoder.decode([PhotosModel].self, from: data)
-                completion(jsonData)
-            } catch let error {
-                print ("Error serialization JSON", error)
+            if let data = data {
+                do {
+                    let decoder = JSONDecoder()
+                    let jsonData = try decoder.decode([PhotosModel].self, from: data)
+                    completion(jsonData)
+                } catch let error {
+                    DispatchQueue.main.async {
+                        print ("Error serialization JSON", error)
+                        completion([])
+                    }
+                }
+            } else {
+                DispatchQueue.main.async {
+                    networkAlert()
+                }
             }
         }.resume()
     }
     
-    static func fetchImage(imageUrl: String, completion: @escaping (Any) -> ()){
-        
+    static func fetchImage(imageUrl: String, completion: @escaping (UIImage) -> ()){
         guard let imageUrl = URL(string: imageUrl) else { return }
         let session = URLSession.shared
         session.dataTask(with: imageUrl) { (data, response, error) in
@@ -66,7 +81,20 @@ struct NetworkService {
                 DispatchQueue.main.async {
                     completion(image)
                 }
+            } else {
+                DispatchQueue.main.async {
+                    networkAlert()
+                    let image = #imageLiteral(resourceName: "noImage")
+                    completion(image)
+                }
             }
         }.resume()
+    }
+    
+    static func networkAlert() {
+        let alertController = UIAlertController(title: "Error", message: "Network is unavaliable! Please try again later!", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        let rootViewController = UIApplication.shared.keyWindow?.rootViewController
+        rootViewController?.present(alertController, animated: true, completion: nil)
     }
 }
