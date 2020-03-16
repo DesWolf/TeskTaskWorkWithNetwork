@@ -96,7 +96,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IV6-Hb-m89">
-                                                    <rect key="frame" x="8" y="8" width="305" height="380"/>
+                                                    <rect key="frame" x="8" y="8" width="303" height="378"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4GG-HP-HjK">
                                                             <rect key="frame" x="0.0" y="0.0" width="303" height="378"/>
@@ -131,9 +131,10 @@
                                                             </constraints>
                                                         </view>
                                                     </subviews>
+                                                    <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstItem="4GG-HP-HjK" firstAttribute="trailing" secondItem="IV6-Hb-m89" secondAttribute="trailingMargin" constant="6" id="Aco-sb-aXA"/>
-                                                        <constraint firstItem="4GG-HP-HjK" firstAttribute="bottom" secondItem="IV6-Hb-m89" secondAttribute="bottomMargin" constant="6" id="Xvw-xF-Tjp"/>
+                                                        <constraint firstItem="4GG-HP-HjK" firstAttribute="trailing" secondItem="IV6-Hb-m89" secondAttribute="trailingMargin" constant="8" id="Aco-sb-aXA"/>
+                                                        <constraint firstItem="4GG-HP-HjK" firstAttribute="bottom" secondItem="IV6-Hb-m89" secondAttribute="bottomMargin" constant="8" id="Xvw-xF-Tjp"/>
                                                         <constraint firstItem="4GG-HP-HjK" firstAttribute="top" secondItem="IV6-Hb-m89" secondAttribute="top" id="crX-ZP-Uhf"/>
                                                         <constraint firstItem="4GG-HP-HjK" firstAttribute="leading" secondItem="IV6-Hb-m89" secondAttribute="leading" id="mvU-0b-yVO"/>
                                                     </constraints>
@@ -141,9 +142,9 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="IV6-Hb-m89" firstAttribute="leading" secondItem="iWe-pR-A9J" secondAttribute="leading" constant="8" id="Xb3-b6-G66"/>
-                                                <constraint firstAttribute="bottom" secondItem="IV6-Hb-m89" secondAttribute="bottom" constant="12" id="jln-y8-sTO"/>
+                                                <constraint firstAttribute="bottom" secondItem="IV6-Hb-m89" secondAttribute="bottom" constant="14" id="jln-y8-sTO"/>
                                                 <constraint firstItem="IV6-Hb-m89" firstAttribute="top" secondItem="iWe-pR-A9J" secondAttribute="top" constant="8" id="l4W-v8-f1L"/>
-                                                <constraint firstAttribute="trailing" secondItem="IV6-Hb-m89" secondAttribute="trailing" constant="7" id="qhA-XW-olw"/>
+                                                <constraint firstAttribute="trailing" secondItem="IV6-Hb-m89" secondAttribute="trailing" constant="9" id="qhA-XW-olw"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

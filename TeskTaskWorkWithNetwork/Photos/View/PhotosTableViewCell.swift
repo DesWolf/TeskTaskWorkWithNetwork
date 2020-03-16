@@ -24,7 +24,13 @@ class PhotosTableViewCell: UITableViewCell {
         
         self.photoFrontView.layer.masksToBounds = true
         self.photoFrontView.layer.cornerRadius = 10
-        self.photoFrontView.layer.borderWidth = 1
+        self.photoBackView.layer.cornerRadius = 10
+        self.photoBackView.layer.shadowColor = UIColor.black.cgColor
+        self.photoBackView.layer.shadowOffset = CGSize(width: 1, height: 1)
+        self.photoBackView.layer.shadowOpacity = 0.3
+        self.photoBackView.layer.shadowRadius = 2.0
+        self.photoBackView.clipsToBounds = false
+        self.photoBackView.layer.masksToBounds = false
         
         self.photoTitle.text = photo.title ?? ""
         self.currentImageUrl = photo.url ?? ""
@@ -49,5 +55,11 @@ class PhotosTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         photoImageView.image = nil
+    }
+}
+
+extension UIView {
+    func makeShadow() {
+        
     }
 }

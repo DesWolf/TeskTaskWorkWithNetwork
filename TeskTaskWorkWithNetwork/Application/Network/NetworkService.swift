@@ -10,6 +10,7 @@ import UIKit
 
 struct NetworkService {
     
+    // MARK: Network
     static func fetchUsersData(completion: @escaping ([UsersModel]) -> ()) {
         guard let url = URL(string: "https://jsonplaceholder.typicode.com/users") else { return }
         URLSession.shared.dataTask(with: url) { (data, responce, error) in
@@ -91,6 +92,7 @@ struct NetworkService {
         }.resume()
     }
     
+    // MARK: Network Alert
     static func networkAlert() {
         let alertController = UIAlertController(title: "Error", message: "Network is unavaliable! Please try again later!", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))

@@ -41,9 +41,7 @@ class PhotosVC: UIViewController{
     }
 }
 
-// MARK: TableViewDelagate & TableViewDataSource
-extension PhotosVC: UITableViewDelegate {
-}
+// MARK: TableViewDataSource
 
 extension PhotosVC: UITableViewDataSource {
     
