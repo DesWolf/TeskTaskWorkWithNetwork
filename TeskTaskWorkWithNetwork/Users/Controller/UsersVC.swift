@@ -12,12 +12,14 @@ class UsersVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    private var users = [UsersModel]()
-    private var albums = [AlbumsModel]()
+    private var users = [Users]()
+    private var albums = [Albums]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchUsersData()
+        self.tableView.rowHeight = 44
+        self.tableView.tableFooterView = UIView()
     }
     
     @IBAction func updateUsers(_ sender: Any) {
@@ -64,10 +66,10 @@ extension UsersVC {
     }
 }
 
-// MARK: TableViewDelagate & TableViewDataSource
+// MARK: TableViewDataSource
 
 extension UsersVC: UITableViewDataSource {
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users.count
     }

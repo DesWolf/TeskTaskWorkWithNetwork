@@ -12,7 +12,7 @@ class UsersTableViewCell: UITableViewCell {
     
     @IBOutlet var userNameLabel: UILabel!
     
-    func configere( with user: UsersModel) {
+    func configere( with user: Users) {
         self.userNameLabel.text = user.name
     }
 }

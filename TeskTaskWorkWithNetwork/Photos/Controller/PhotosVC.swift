@@ -13,8 +13,8 @@ class PhotosVC: UIViewController{
     @IBOutlet weak var tableView: UITableView!
     
     var albumsIDs = [Int]()
-    private var photos = [PhotosModel]()
-    private var filteredPhotos = [PhotosModel]()
+    private var photos = [Photos]()
+    private var filteredPhotos = [Photos]()
     let memoryCapacity = 500 * 1024 * 1024
     let diskCapacity = 500 * 1024 * 1024
     

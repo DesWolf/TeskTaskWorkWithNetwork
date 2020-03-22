@@ -18,7 +18,7 @@ class PhotosTableViewCell: UITableViewCell {
     
     var currentImageUrl = ""
     
-    func configure( with photo: PhotosModel) {
+    func configure( with photo: Photos) {
         photoActivityIndicator.isHidden = true
         photoActivityIndicator.hidesWhenStopped = true
         
