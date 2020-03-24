@@ -64,7 +64,3 @@ extension PhotosTableViewCell {
         }
     }
 }
-/////
-
-
-
