@@ -24,7 +24,14 @@ class PhotosTableViewCell: UITableViewCell {
         
         self.photoFrontView.layer.masksToBounds = true
         self.photoFrontView.layer.cornerRadius = 10
+        cellShadow()
         
+        self.photoTitle.text = photo.title ?? ""
+        self.currentImageUrl = photo.url ?? ""
+        fetchImage(imageUrl: photo.url ?? "")
+    }
+    
+    func cellShadow() {
         self.photoBackView.layer.cornerRadius = 10
         self.photoBackView.layer.shadowColor = UIColor.black.cgColor
         self.photoBackView.layer.shadowOffset = CGSize(width: 1, height: 1)
@@ -32,13 +39,17 @@ class PhotosTableViewCell: UITableViewCell {
         self.photoBackView.layer.shadowRadius = 2.0
         self.photoBackView.clipsToBounds = false
         self.photoBackView.layer.masksToBounds = false
-        
-        self.photoTitle.text = photo.title ?? ""
-        self.currentImageUrl = photo.url ?? ""
-        self.fetchImage(imageUrl: photo.url ?? "")
     }
     
-    // MARK: Network
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        photoImageView.image = nil
+    }
+}
+
+// MARK: Network
+extension PhotosTableViewCell {
+    
     private func fetchImage(imageUrl: String) {
         photoActivityIndicator.isHidden = false
         photoActivityIndicator.startAnimating()
@@ -51,10 +62,5 @@ class PhotosTableViewCell: UITableViewCell {
                 }
             }
         }
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        photoImageView.image = nil
     }
 }
