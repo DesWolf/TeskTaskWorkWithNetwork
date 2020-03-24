@@ -58,9 +58,3 @@ class PhotosTableViewCell: UITableViewCell {
         photoImageView.image = nil
     }
 }
-
-extension UIView {
-    func makeShadow() {
-        
-    }
-}
