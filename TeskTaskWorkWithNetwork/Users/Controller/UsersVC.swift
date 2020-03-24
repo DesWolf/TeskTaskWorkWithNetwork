@@ -18,7 +18,7 @@ class UsersVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchUsersData()
-        self.tableView.rowHeight = 44
+
         self.tableView.tableFooterView = UIView()
     }
     
@@ -68,7 +68,11 @@ extension UsersVC {
 
 // MARK: TableViewDataSource
 
-extension UsersVC: UITableViewDataSource {
+extension UsersVC: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 44
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users.count

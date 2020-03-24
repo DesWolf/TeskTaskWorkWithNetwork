@@ -24,6 +24,7 @@ class PhotosTableViewCell: UITableViewCell {
         
         self.photoFrontView.layer.masksToBounds = true
         self.photoFrontView.layer.cornerRadius = 10
+        
         self.photoBackView.layer.cornerRadius = 10
         self.photoBackView.layer.shadowColor = UIColor.black.cgColor
         self.photoBackView.layer.shadowOffset = CGSize(width: 1, height: 1)
