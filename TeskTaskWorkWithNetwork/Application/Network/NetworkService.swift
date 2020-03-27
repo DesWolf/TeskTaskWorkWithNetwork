@@ -18,10 +18,14 @@ struct NetworkService {
                 do {
                     let decoder = JSONDecoder()
                     let jsonData = try decoder.decode([Users].self, from: data)
-                    completion(jsonData)
+                    DispatchQueue.main.async {
+                        completion(jsonData)
+                    }
                 } catch let error {
-                    print ("Error serialization JSON", error)
-                    completion([])
+                    DispatchQueue.main.async {
+                        print ("Error serialization JSON", error)
+                        completion([])
+                    }
                 }
             } else {
                 DispatchQueue.main.async {
@@ -41,7 +45,9 @@ struct NetworkService {
                     completion(jsonData)
                 } catch let error {
                     print ("Error serialization JSON", error)
-                    completion([])
+                    DispatchQueue.main.async {
+                        completion([])
+                    }
                 }
             } else {
                 DispatchQueue.main.async {
@@ -58,7 +64,9 @@ struct NetworkService {
                 do {
                     let decoder = JSONDecoder()
                     let jsonData = try decoder.decode([Photos].self, from: data)
-                    completion(jsonData)
+                    DispatchQueue.main.async {
+                        completion(jsonData)
+                    }
                 } catch let error {
                     DispatchQueue.main.async {
                         print ("Error serialization JSON", error)
@@ -73,27 +81,32 @@ struct NetworkService {
         }.resume()
     }
     
+    
     static func fetchImage(imageUrl: String, completion: @escaping (UIImage) -> ()){
-        guard let imageUrl = URL(string: imageUrl) else { return }
-        let session = URLSession.shared
-        session.dataTask(with: imageUrl) { (data, response, error) in
-            
-            if let data = data, let image = UIImage(data: data) {
-                DispatchQueue.main.async {
-                    completion(image)
+        let queue = DispatchQueue.global(qos: .utility)
+        queue.async {
+            guard let imageUrl = URL(string: imageUrl) else { return }
+            let session = URLSession.shared
+            session.dataTask(with: imageUrl) { (data, response, error) in
+                
+                if let data = data, let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        completion(image)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        networkAlert()
+                        let image = #imageLiteral(resourceName: "noImage")
+                        completion(image)
+                    }
                 }
-            } else {
-                DispatchQueue.main.async {
-                    networkAlert()
-                    let image = #imageLiteral(resourceName: "noImage")
-                    completion(image)
-                }
-            }
-        }.resume()
+            }.resume()
+        }
     }
     
     // MARK: Network Alert
     static func networkAlert() {
+        
         let alertController = UIAlertController(title: "Error", message: "Network is unavaliable! Please try again later!", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         let rootViewController = UIApplication.shared.keyWindow?.rootViewController

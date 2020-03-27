@@ -18,7 +18,7 @@ class UsersVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchUsersData()
-
+        
         self.tableView.tableFooterView = UIView()
     }
     
@@ -42,7 +42,6 @@ extension UsersVC {
     private func fetchAlbumsData() {
         NetworkService.fetchAlbumsData() { (jsonData) in
             self.albums = jsonData
-            
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -54,9 +53,7 @@ extension UsersVC {
 extension UsersVC {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "photosVC" {
-            
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
             let user = users[indexPath.row]
             let photosVC = segue.destination as! PhotosVC
@@ -67,17 +64,14 @@ extension UsersVC {
 }
 
 // MARK: TableViewDataSource
-
-extension UsersVC: UITableViewDataSource, UITableViewDelegate {
+extension UsersVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 44
     }
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "usersVCCell", for: indexPath) as! UsersTableViewCell
         let user = users[indexPath.row]
@@ -85,3 +79,4 @@ extension UsersVC: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
 }
+
