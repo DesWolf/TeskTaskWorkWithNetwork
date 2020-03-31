@@ -17,6 +17,7 @@ class PhotosTableViewCell: UITableViewCell {
     @IBOutlet var photoFrontView: UIView!
     
     var currentImageUrl = ""
+    var imageCache = NSCache<AnyObject, AnyObject>()
     
     func configure( with photo: Photos) {
         photoActivityIndicator.isHidden = true
@@ -28,7 +29,12 @@ class PhotosTableViewCell: UITableViewCell {
         
         self.photoTitle.text = photo.title ?? ""
         self.currentImageUrl = photo.url ?? ""
-        fetchImage(imageUrl: photo.url ?? "")
+        
+        if let cacheImage = imageCache.object(forKey: currentImageUrl as AnyObject) as? UIImage {
+            self.photoImageView.image = cacheImage
+        } else {
+            fetchImage(imageUrl: photo.url ?? "")
+        }
     }
     
     func cellShadow() {
@@ -58,6 +64,7 @@ extension PhotosTableViewCell {
             DispatchQueue.main.async {
                 if self.currentImageUrl == imageUrl {
                     self.photoImageView.image = image
+                    self.imageCache.setObject(image, forKey: self.currentImageUrl as AnyObject)
                     self.photoActivityIndicator.stopAnimating()
                 }
             }

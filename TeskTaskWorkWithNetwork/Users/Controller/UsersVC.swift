@@ -64,7 +64,7 @@ extension UsersVC {
 }
 
 // MARK: TableViewDataSource
-extension UsersVC: UITableViewDelegate {
+extension UsersVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 44
@@ -79,4 +79,3 @@ extension UsersVC: UITableViewDelegate {
         return cell
     }
 }
-
