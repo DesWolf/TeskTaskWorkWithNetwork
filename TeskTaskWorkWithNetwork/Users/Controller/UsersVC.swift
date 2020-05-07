@@ -8,17 +8,18 @@
 
 import UIKit
 
-class UsersVC: UIViewController {
+class UsersVC: UIViewController{
     
     @IBOutlet weak var tableView: UITableView!
     
     private var users = [Users]()
     private var albums = [Albums]()
+    private var networkService = NetworkService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchUsersData()
-        
+        networkService.delegate = self
         self.tableView.tableFooterView = UIView()
     }
     
@@ -30,20 +31,20 @@ class UsersVC: UIViewController {
 // MARK: Network
 extension UsersVC {
     private func fetchUsersData() {
-        NetworkService.fetchUsersData() { (jsonData) in
-            self.users = jsonData
-            self.fetchAlbumsData()
+        networkService.fetchUsersData() { [weak self]  (jsonData) in
+            self?.users = jsonData
+            self?.fetchAlbumsData()
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                self?.tableView.reloadData()
             }
         }
     }
     
     private func fetchAlbumsData() {
-        NetworkService.fetchAlbumsData() { (jsonData) in
-            self.albums = jsonData
+        networkService.fetchAlbumsData() { [weak self] (jsonData) in
+            self?.albums = jsonData
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                self?.tableView.reloadData()
             }
         }
     }
@@ -79,3 +80,13 @@ extension UsersVC: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 }
+
+//MARK: Alert
+extension UsersVC: AlertNetworkProtocol  {
+    func alertNetwork() {
+        print("AlertinVC")
+        UIAlertController.alert(title:"Error", msg:"Network is unavaliable! Please try again later!", target: self)
+    }
+}
+
+

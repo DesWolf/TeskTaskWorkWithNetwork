@@ -8,10 +8,16 @@
 
 import UIKit
 
+protocol AlertNetworkProtocol: AnyObject {
+    func alertNetwork()
+}
+
 struct NetworkService {
     
+    weak var delegate: AlertNetworkProtocol?
+    
     // MARK: Network
-    static func fetchUsersData(completion: @escaping ([Users]) -> ()) {
+    func fetchUsersData(completion: @escaping ([Users]) -> ()) {
         guard let url = URL(string: "https://jsonplaceholder.typicode.com/users") else { return }
         URLSession.shared.dataTask(with: url) { (data, responce, error) in
             if let data = data {
@@ -28,14 +34,12 @@ struct NetworkService {
                     }
                 }
             } else {
-                DispatchQueue.main.async {
-                    networkAlert()
-                }
+                self.delegate?.alertNetwork()
             }
         }.resume()
     }
     
-    static func fetchAlbumsData(completion: @escaping ([Albums]) -> ()) {
+    func fetchAlbumsData(completion: @escaping ([Albums]) -> ()) {
         guard let url = URL(string: "https://jsonplaceholder.typicode.com/albums") else { return }
         URLSession.shared.dataTask(with: url) { (data, responce, error) in
             if let data = data {
@@ -50,14 +54,12 @@ struct NetworkService {
                     }
                 }
             } else {
-                DispatchQueue.main.async {
-                    networkAlert()
-                }
+                self.delegate?.alertNetwork()
             }
         }.resume()
     }
     
-    static func fetchPhotosData(completion: @escaping ([Photos]) -> ()) {
+    func fetchPhotosData(completion: @escaping ([Photos]) -> ()) {
         guard let url = URL(string: "https://jsonplaceholder.typicode.com/photos") else { return }
         URLSession.shared.dataTask(with: url) { (data, responce, error) in
             if let data = data {
@@ -74,15 +76,13 @@ struct NetworkService {
                     }
                 }
             } else {
-                DispatchQueue.main.async {
-                    networkAlert()
-                }
+                self.delegate?.alertNetwork()
             }
         }.resume()
     }
     
     
-    static func fetchImage(imageUrl: String, completion: @escaping (UIImage) -> ()){
+    func fetchImage(imageUrl: String, completion: @escaping (UIImage) -> ()){
         let queue = DispatchQueue.global(qos: .utility)
         queue.async {
             guard let imageUrl = URL(string: imageUrl) else { return }
@@ -95,21 +95,12 @@ struct NetworkService {
                     }
                 } else {
                     DispatchQueue.main.async {
-                        networkAlert()
+                        self.delegate?.alertNetwork()
                         let image = #imageLiteral(resourceName: "noImage")
                         completion(image)
                     }
                 }
             }.resume()
         }
-    }
-    
-    // MARK: Network Alert
-    static func networkAlert() {
-        
-        let alertController = UIAlertController(title: "Error", message: "Network is unavaliable! Please try again later!", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        let rootViewController = UIApplication.shared.keyWindow?.rootViewController
-        rootViewController?.present(alertController, animated: true, completion: nil)
     }
 }

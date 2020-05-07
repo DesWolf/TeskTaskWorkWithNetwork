@@ -16,6 +16,7 @@ class PhotosTableViewCell: UITableViewCell {
     @IBOutlet var photoBackView: UIView!
     @IBOutlet var photoFrontView: UIView!
     
+    private var networkService = NetworkService()
     var currentImageUrl = ""
     var imageCache = NSCache<AnyObject, AnyObject>()
     
@@ -60,12 +61,12 @@ extension PhotosTableViewCell {
         photoActivityIndicator.isHidden = false
         photoActivityIndicator.startAnimating()
         
-        NetworkService.fetchImage(imageUrl: imageUrl) { (image) in
+        networkService.fetchImage(imageUrl: imageUrl) { [weak self] (image) in
             DispatchQueue.main.async {
-                if self.currentImageUrl == imageUrl {
-                    self.photoImageView.image = image
-                    self.imageCache.setObject(image, forKey: self.currentImageUrl as AnyObject)
-                    self.photoActivityIndicator.stopAnimating()
+                if self?.currentImageUrl == imageUrl {
+                    self?.photoImageView.image = image
+                    self?.imageCache.setObject(image, forKey: self?.currentImageUrl as AnyObject)
+                    self?.photoActivityIndicator.stopAnimating()
                 }
             }
         }

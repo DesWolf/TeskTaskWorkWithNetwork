@@ -15,23 +15,24 @@ class PhotosVC: UIViewController{
     var albumsIDs = [Int]()
     private var photos = [Photos]()
     private var filteredPhotos = [Photos]()
+    private var networkService = NetworkService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         fetchPhotosData()
+        networkService.delegate = self
     }
     
     // MARK: Network
     private func fetchPhotosData() {
         
-        NetworkService.fetchPhotosData() { (jsonData) in
-            self.photos = jsonData
-            for index in 0..<self.albumsIDs.count {
-                self.filteredPhotos += self.photos.filter{ $0.albumId == self.albumsIDs[index]}
+        networkService.fetchPhotosData() { [weak self] (jsonData) in
+            self?.photos = jsonData
+            for index in 0..<(self?.albumsIDs.count)! {
+                self?.filteredPhotos += (self?.photos.filter{ $0.albumId == self?.albumsIDs[index]})!
             }
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                self?.tableView.reloadData()
             }
         }
     }
@@ -55,5 +56,13 @@ extension PhotosVC: UITableViewDataSource {
         cell.photoFrontView.layer.borderColor = borderColor.cgColor
         
         return cell
+    }
+}
+
+//MARK: Alert
+extension PhotosVC: AlertNetworkProtocol  {
+    func alertNetwork() {
+        print("AlertinVC")
+        UIAlertController.alert(title:"Error", msg:"Network is unavaliable! Please try again later!", target: self)
     }
 }

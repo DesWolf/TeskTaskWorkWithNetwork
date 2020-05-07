@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E1345CB24640DE9007103E3 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1345CA24640DE9007103E3 /* AlertService.swift */; };
 		9E525D7D23FD2896002292DD /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E525D7C23FD2896002292DD /* PhotosTableViewCell.swift */; };
 		9E525D7F23FD29B5002292DD /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E525D7E23FD29B5002292DD /* UsersTableViewCell.swift */; };
 		9E6DC8C724013C04009482E2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E6DC8C624013C04009482E2 /* Default-568h@2x.png */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9E1345CA24640DE9007103E3 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		9E525D7C23FD2896002292DD /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
 		9E525D7E23FD29B5002292DD /* UsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
 		9E6DC8C624013C04009482E2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				9ECFB8C823FD1B700094C702 /* NetworkService.swift */,
+				9E1345CA24640DE9007103E3 /* AlertService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				9ECFB8D623FD209D0094C702 /* Photos.swift in Sources */,
 				9ECFB8B723FD0D7C0094C702 /* UsersVC.swift in Sources */,
 				9ECFB8D423FD208F0094C702 /* Albums.swift in Sources */,
+				9E1345CB24640DE9007103E3 /* AlertService.swift in Sources */,
 				9ECFB8B323FD0D7C0094C702 /* AppDelegate.swift in Sources */,
 				9ECFB8C923FD1B700094C702 /* NetworkService.swift in Sources */,
 				9E525D7D23FD2896002292DD /* PhotosTableViewCell.swift in Sources */,
