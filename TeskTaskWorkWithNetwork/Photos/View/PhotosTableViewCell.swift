@@ -16,11 +16,12 @@ class PhotosTableViewCell: UITableViewCell {
     @IBOutlet var photoBackView: UIView!
     @IBOutlet var photoFrontView: UIView!
     
-    private var networkService = NetworkService()
+    private let networkService = NetworkService()
+    private let networkManager = NetworkManager()
     var currentImageUrl = ""
     var imageCache = NSCache<AnyObject, AnyObject>()
     
-    func configure( with photo: Photos) {
+    func configure( with photo: PhotoInfo) {
         photoActivityIndicator.isHidden = true
         photoActivityIndicator.hidesWhenStopped = true
         
@@ -61,11 +62,22 @@ extension PhotosTableViewCell {
         photoActivityIndicator.isHidden = false
         photoActivityIndicator.startAnimating()
         
-        networkService.fetchImage(imageUrl: imageUrl) { [weak self] (image) in
+//        networkService.fetchImage(imageUrl: imageUrl) { [weak self] (image) in
+//            DispatchQueue.main.async {
+//                if self?.currentImageUrl == imageUrl {
+//                    self?.photoImageView.image = image
+//                    self?.imageCache.setObject(image, forKey: self?.currentImageUrl as AnyObject)
+//                    self?.photoActivityIndicator.stopAnimating()
+//                }
+//            }
+//        }
+        
+        networkManager.fetchImage(imageUrl: imageUrl) { [weak self] (image, error) in
+     
             DispatchQueue.main.async {
                 if self?.currentImageUrl == imageUrl {
                     self?.photoImageView.image = image
-                    self?.imageCache.setObject(image, forKey: self?.currentImageUrl as AnyObject)
+//                    self?.imageCache.setObject(image, forKey: self?.currentImageUrl as AnyObject)
                     self?.photoActivityIndicator.stopAnimating()
                 }
             }

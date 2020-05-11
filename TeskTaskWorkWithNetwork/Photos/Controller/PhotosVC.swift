@@ -12,31 +12,38 @@ class PhotosVC: UIViewController{
     
     @IBOutlet weak var tableView: UITableView!
     
+    var userId = Int()
     var albumsIDs = [Int]()
-    private var photos = [Photos]()
-    private var filteredPhotos = [Photos]()
-    private var networkService = NetworkService()
+    private var photos = [PhotoInfo]()
+    private var filteredPhotos = [PhotoInfo]()
+    //    private var networkService = NetworkService()
+    private let networkManager = NetworkManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchPhotosData()
-        networkService.delegate = self
+        //        networkService.delegate = self
     }
+}
+
+// MARK: Network
+extension PhotosVC {
     
-    // MARK: Network
     private func fetchPhotosData() {
-        
-        networkService.fetchPhotosData() { [weak self] (jsonData) in
-            self?.photos = jsonData
-            for index in 0..<(self?.albumsIDs.count)! {
-                self?.filteredPhotos += (self?.photos.filter{ $0.albumId == self?.albumsIDs[index]})!
-            }
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
+        for elem in 0..<(albumsIDs.count) {
+            networkManager.fetchPhotosData(albumId: elem) { [weak self] (photoInfo, error) in
+                guard let photoInfo = photoInfo else { return print(error ?? "") }
+                self?.filteredPhotos += photoInfo
+                
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
             }
         }
     }
 }
+
+
 
 // MARK: TableViewDataSource
 

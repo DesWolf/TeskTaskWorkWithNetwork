@@ -12,28 +12,32 @@ class UsersVC: UIViewController{
     
     @IBOutlet weak var tableView: UITableView!
     
-    private var users = [Users]()
-    private var albums = [Albums]()
-    private var networkService = NetworkService()
+    private var users = [User]()
+    private var albums = [Album]()
+    //    private var networkService = NetworkService()
+    private let networkManager =  NetworkManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchUsersData()
-        networkService.delegate = self
+        fetchAlbumsData()
+        //        networkService.delegate = self
         self.tableView.tableFooterView = UIView()
     }
     
     @IBAction func updateUsers(_ sender: Any) {
         fetchUsersData()
+     
     }
 }
 
 // MARK: Network
 extension UsersVC {
+    
     private func fetchUsersData() {
-        networkService.fetchUsersData() { [weak self]  (jsonData) in
-            self?.users = jsonData
-            self?.fetchAlbumsData()
+        networkManager.fetchUsersData() { [weak self]  (users, error)  in
+            guard let users = users else { return print(error ?? "") }
+            self?.users = users
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
             }
@@ -41,14 +45,13 @@ extension UsersVC {
     }
     
     private func fetchAlbumsData() {
-        networkService.fetchAlbumsData() { [weak self] (jsonData) in
-            self?.albums = jsonData
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
+            networkManager.fetchAlbumData() { [weak self] (albums, error) in
+                guard let albums = albums else { return print(error ?? "") }
+                self?.albums = albums
             }
         }
     }
-}
+
 
 // MARK: Navigation
 extension UsersVC {

@@ -17,13 +17,13 @@ struct NetworkService {
     weak var delegate: AlertNetworkProtocol?
     
     // MARK: Network
-    func fetchUsersData(completion: @escaping ([Users]) -> ()) {
+    func fetchUsersData(completion: @escaping ([User]) -> ()) {
         guard let url = URL(string: "https://jsonplaceholder.typicode.com/users") else { return }
         URLSession.shared.dataTask(with: url) { (data, responce, error) in
             if let data = data {
                 do {
                     let decoder = JSONDecoder()
-                    let jsonData = try decoder.decode([Users].self, from: data)
+                    let jsonData = try decoder.decode([User].self, from: data)
                     DispatchQueue.main.async {
                         completion(jsonData)
                     }
@@ -39,13 +39,13 @@ struct NetworkService {
         }.resume()
     }
     
-    func fetchAlbumsData(completion: @escaping ([Albums]) -> ()) {
+    func fetchAlbumsData(completion: @escaping ([Album]) -> ()) {
         guard let url = URL(string: "https://jsonplaceholder.typicode.com/albums") else { return }
         URLSession.shared.dataTask(with: url) { (data, responce, error) in
             if let data = data {
                 do {
                     let decoder = JSONDecoder()
-                    let jsonData = try decoder.decode([Albums].self, from: data)
+                    let jsonData = try decoder.decode([Album].self, from: data)
                     completion(jsonData)
                 } catch let error {
                     print ("Error serialization JSON", error)
@@ -59,13 +59,13 @@ struct NetworkService {
         }.resume()
     }
     
-    func fetchPhotosData(completion: @escaping ([Photos]) -> ()) {
+    func fetchPhotosData(completion: @escaping ([PhotoInfo]) -> ()) {
         guard let url = URL(string: "https://jsonplaceholder.typicode.com/photos") else { return }
         URLSession.shared.dataTask(with: url) { (data, responce, error) in
             if let data = data {
                 do {
                     let decoder = JSONDecoder()
-                    let jsonData = try decoder.decode([Photos].self, from: data)
+                    let jsonData = try decoder.decode([PhotoInfo].self, from: data)
                     DispatchQueue.main.async {
                         completion(jsonData)
                     }
