@@ -17,7 +17,7 @@ class PhotosTableViewCell: UITableViewCell {
     @IBOutlet var photoFrontView: UIView!
     
     private let networkService = NetworkService()
-    private let networkManager = NetworkManager()
+    private let networkManagerImageData = NetworkManagerImageData()
     var currentImageUrl = ""
     var imageCache = NSCache<AnyObject, AnyObject>()
     
@@ -72,7 +72,7 @@ extension PhotosTableViewCell {
 //            }
 //        }
         
-        networkManager.fetchImage(imageUrl: imageUrl) { [weak self] (image, error) in
+        networkManagerImageData.fetchImage(imageUrl: imageUrl) { [weak self] (image, error) in
      
             DispatchQueue.main.async {
                 if self?.currentImageUrl == imageUrl {

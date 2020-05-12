@@ -16,9 +16,10 @@
 		9E1345DD24643B66007103E3 /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1345DC24643B66007103E3 /* JSONParameterEncoder.swift */; };
 		9E1345DF24643BD9007103E3 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1345DE24643BD9007103E3 /* Router.swift */; };
 		9E1345E1246452E3007103E3 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1345E0246452E3007103E3 /* NetworkLogger.swift */; };
-		9E1345E3246454F1007103E3 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1345E2246454F1007103E3 /* NetworkManager.swift */; };
+		9E1345E3246454F1007103E3 /* NetworkManagerMainData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1345E2246454F1007103E3 /* NetworkManagerMainData.swift */; };
 		9E1345E5246455A2007103E3 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1345E4246455A2007103E3 /* Movie.swift */; };
 		9E1345E72464582B007103E3 /* MovieEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1345E62464582B007103E3 /* MovieEndPoint.swift */; };
+		9E1C863B246AB13100F038C3 /* NetworkManagerImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1C863A246AB13100F038C3 /* NetworkManagerImageData.swift */; };
 		9E525D7D23FD2896002292DD /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E525D7C23FD2896002292DD /* PhotosTableViewCell.swift */; };
 		9E525D7F23FD29B5002292DD /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E525D7E23FD29B5002292DD /* UsersTableViewCell.swift */; };
 		9E6DC8C724013C04009482E2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E6DC8C624013C04009482E2 /* Default-568h@2x.png */; };
@@ -44,9 +45,10 @@
 		9E1345DC24643B66007103E3 /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
 		9E1345DE24643BD9007103E3 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		9E1345E0246452E3007103E3 /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
-		9E1345E2246454F1007103E3 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		9E1345E2246454F1007103E3 /* NetworkManagerMainData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerMainData.swift; sourceTree = "<group>"; };
 		9E1345E4246455A2007103E3 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		9E1345E62464582B007103E3 /* MovieEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieEndPoint.swift; sourceTree = "<group>"; };
+		9E1C863A246AB13100F038C3 /* NetworkManagerImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerImageData.swift; sourceTree = "<group>"; };
 		9E525D7C23FD2896002292DD /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
 		9E525D7E23FD29B5002292DD /* UsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
 		9E6DC8C624013C04009482E2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -100,7 +102,8 @@
 		9E1345D024642E81007103E3 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				9E1345E2246454F1007103E3 /* NetworkManager.swift */,
+				9E1345E2246454F1007103E3 /* NetworkManagerMainData.swift */,
+				9E1C863A246AB13100F038C3 /* NetworkManagerImageData.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -332,7 +335,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E1345E3246454F1007103E3 /* NetworkManager.swift in Sources */,
+				9E1345E3246454F1007103E3 /* NetworkManagerMainData.swift in Sources */,
 				9E1345DD24643B66007103E3 /* JSONParameterEncoder.swift in Sources */,
 				9E1345D92464371E007103E3 /* ParameterEncoding.swift in Sources */,
 				9E525D7F23FD29B5002292DD /* UsersTableViewCell.swift in Sources */,
@@ -348,6 +351,7 @@
 				9ECFB8B323FD0D7C0094C702 /* AppDelegate.swift in Sources */,
 				9E1345E5246455A2007103E3 /* Movie.swift in Sources */,
 				9ECFB8C923FD1B700094C702 /* NetworkService.swift in Sources */,
+				9E1C863B246AB13100F038C3 /* NetworkManagerImageData.swift in Sources */,
 				9E1345D524642FF9007103E3 /* HTTPMethod.swift in Sources */,
 				9E1345E72464582B007103E3 /* MovieEndPoint.swift in Sources */,
 				9E525D7D23FD2896002292DD /* PhotosTableViewCell.swift in Sources */,

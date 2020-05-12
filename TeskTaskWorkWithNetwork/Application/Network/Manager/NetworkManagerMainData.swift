@@ -6,7 +6,6 @@
 //  Copyright © 2020 Максим Окунеев. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 enum NetworkResponse:String {
@@ -24,8 +23,8 @@ enum Result<String>{
     case failure(String)
 }
 
-struct NetworkManager {
-    static let environment : NetworkEnvironment = .production
+struct NetworkManagerMainData {
+    static var environment : NetworkEnvironment = .mainData
     //    static let MovieAPIKey = "0877021125b6df42d47600486d64adff"
     let router = Router<MovieApi>()
     
@@ -114,7 +113,7 @@ struct NetworkManager {
             }
         }
     }
-    
+      
     func fetchImage(imageUrl: String, completion: @escaping (UIImage?,_ error: String?)->()){
         router.request(.photoImage) { data, response, error in
             

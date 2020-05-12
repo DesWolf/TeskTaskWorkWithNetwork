@@ -17,7 +17,7 @@ class PhotosVC: UIViewController{
     private var photos = [PhotoInfo]()
     private var filteredPhotos = [PhotoInfo]()
     //    private var networkService = NetworkService()
-    private let networkManager = NetworkManager()
+    private let networkManagerMainData = NetworkManagerMainData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,7 @@ extension PhotosVC {
     
     private func fetchPhotosData() {
         for elem in 0..<(albumsIDs.count) {
-            networkManager.fetchPhotosData(albumId: elem) { [weak self] (photoInfo, error) in
+            networkManagerMainData.fetchPhotosData(albumId: elem) { [weak self] (photoInfo, error) in
                 guard let photoInfo = photoInfo else { return print(error ?? "") }
                 self?.filteredPhotos += photoInfo
                 

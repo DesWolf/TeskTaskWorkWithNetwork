@@ -10,8 +10,8 @@ import Foundation
 
 enum NetworkEnvironment {
     //    case qa
-    case production
-    case photoImage
+    case mainData
+    case imageData
     //    case staging
 }
 
@@ -29,9 +29,9 @@ public enum MovieApi {
 extension MovieApi: EndPointType {
     
     var environmentBaseURL : String {
-        switch NetworkManager.environment {
-        case .production: return "https://jsonplaceholder.typicode.com/"
-        case .photoImage: return ""
+        switch NetworkManagerMainData.environment {
+        case .mainData: return "https://jsonplaceholder.typicode.com/"
+        case .imageData: return ""
         }
     }
     

@@ -15,7 +15,7 @@ class UsersVC: UIViewController{
     private var users = [User]()
     private var albums = [Album]()
     //    private var networkService = NetworkService()
-    private let networkManager =  NetworkManager()
+    private let networkManagerMainData =  NetworkManagerMainData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ class UsersVC: UIViewController{
 extension UsersVC {
     
     private func fetchUsersData() {
-        networkManager.fetchUsersData() { [weak self]  (users, error)  in
+        networkManagerMainData.fetchUsersData() { [weak self]  (users, error)  in
             guard let users = users else { return print(error ?? "") }
             self?.users = users
             DispatchQueue.main.async {
@@ -45,7 +45,7 @@ extension UsersVC {
     }
     
     private func fetchAlbumsData() {
-            networkManager.fetchAlbumData() { [weak self] (albums, error) in
+            networkManagerMainData.fetchAlbumData() { [weak self] (albums, error) in
                 guard let albums = albums else { return print(error ?? "") }
                 self?.albums = albums
             }
