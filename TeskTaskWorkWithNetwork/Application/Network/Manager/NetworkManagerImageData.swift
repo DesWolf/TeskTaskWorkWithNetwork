@@ -9,12 +9,11 @@
 import UIKit
 
 struct NetworkManagerImageData {
-    static var environment : NetworkEnvironment = .imageData
-    //    static let MovieAPIKey = "0877021125b6df42d47600486d64adff"
-    let router = Router<MovieApi>()
+    static let environment : NetworkEnvironment = .production
+    private let router = Router<ImageApi>()
     
     func fetchImage(imageUrl: String, completion: @escaping (UIImage?,_ error: String?)->()){
-        router.request(.photoImage) { data, response, error in
+        router.request(.photoImage(imageUrl: imageUrl)) { data, response, error in
             
             if error != nil {
                 completion(nil, "Please check your network connection.")
@@ -28,13 +27,7 @@ struct NetworkManagerImageData {
                         completion(nil, NetworkResponse.noData.rawValue)
                         return
                     }
-//                    do {
-//                        let apiResponse = try JSONDecoder().decode([PhotoInfo].self, from: responseData)
-                        completion(image,nil)
-//                    }catch {
-//                        print(error)
-//                        completion(nil, NetworkResponse.unableToDecode.rawValue)
-//                    }
+                    completion(image,nil)
                 case .failure(let networkFailureError):
                     completion(nil, networkFailureError)
                 }
@@ -42,7 +35,6 @@ struct NetworkManagerImageData {
         }
     }
     
-
     fileprivate func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String>{
         switch response.statusCode {
         case 200...299: return .success

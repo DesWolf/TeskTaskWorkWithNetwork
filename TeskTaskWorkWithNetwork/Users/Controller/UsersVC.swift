@@ -12,22 +12,21 @@ class UsersVC: UIViewController{
     
     @IBOutlet weak var tableView: UITableView!
     
-    private var users = [User]()
-    private var albums = [Album]()
-    //    private var networkService = NetworkService()
+    var users = [User]()
+    var albums = [Album]()
     private let networkManagerMainData =  NetworkManagerMainData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchUsersData()
         fetchAlbumsData()
-        //        networkService.delegate = self
         self.tableView.tableFooterView = UIView()
     }
     
     @IBAction func updateUsers(_ sender: Any) {
         fetchUsersData()
-     
+        fetchAlbumsData()
+        
     }
 }
 
@@ -36,7 +35,13 @@ extension UsersVC {
     
     private func fetchUsersData() {
         networkManagerMainData.fetchUsersData() { [weak self]  (users, error)  in
-            guard let users = users else { return print(error ?? "") }
+            guard let users = users else {
+                print(error ?? "")
+                    DispatchQueue.main.async {
+                        self?.alertNetwork(message: error ?? "")
+                    }
+                    return
+                }
             self?.users = users
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
@@ -45,12 +50,19 @@ extension UsersVC {
     }
     
     private func fetchAlbumsData() {
-            networkManagerMainData.fetchAlbumData() { [weak self] (albums, error) in
-                guard let albums = albums else { return print(error ?? "") }
-                self?.albums = albums
+        networkManagerMainData.fetchAlbumData() { [weak self] (albums, error) in
+            guard let albums = albums else {
+                print(error ?? "")
+                DispatchQueue.main.async {
+                    self?.alertNetwork(message: error ?? "")
+                }
+                return
             }
+            self?.albums = albums
+            
         }
     }
+}
 
 
 // MARK: Navigation
@@ -85,10 +97,9 @@ extension UsersVC: UITableViewDelegate, UITableViewDataSource {
 }
 
 //MARK: Alert
-extension UsersVC: AlertNetworkProtocol  {
-    func alertNetwork() {
-        print("AlertinVC")
-        UIAlertController.alert(title:"Error", msg:"Network is unavaliable! Please try again later!", target: self)
+extension UsersVC  {
+    func alertNetwork(message: String) {
+        UIAlertController.alert(title:"Error", msg:"\(message)", target: self)
     }
 }
 

@@ -16,9 +16,8 @@ class PhotosTableViewCell: UITableViewCell {
     @IBOutlet var photoBackView: UIView!
     @IBOutlet var photoFrontView: UIView!
     
-    private let networkService = NetworkService()
     private let networkManagerImageData = NetworkManagerImageData()
-    var currentImageUrl = ""
+    private var currentImageUrl = ""
     var imageCache = NSCache<AnyObject, AnyObject>()
     
     func configure( with photo: PhotoInfo) {
@@ -30,12 +29,12 @@ class PhotosTableViewCell: UITableViewCell {
         cellShadow()
         
         self.photoTitle.text = photo.title ?? ""
-        self.currentImageUrl = photo.url ?? ""
+        self.currentImageUrl = String(photo.url?.suffix(10) ?? "")
         
         if let cacheImage = imageCache.object(forKey: currentImageUrl as AnyObject) as? UIImage {
             self.photoImageView.image = cacheImage
         } else {
-            fetchImage(imageUrl: photo.url ?? "")
+            fetchImage(imageUrl: currentImageUrl)
         }
     }
     
@@ -62,22 +61,18 @@ extension PhotosTableViewCell {
         photoActivityIndicator.isHidden = false
         photoActivityIndicator.startAnimating()
         
-//        networkService.fetchImage(imageUrl: imageUrl) { [weak self] (image) in
-//            DispatchQueue.main.async {
-//                if self?.currentImageUrl == imageUrl {
-//                    self?.photoImageView.image = image
-//                    self?.imageCache.setObject(image, forKey: self?.currentImageUrl as AnyObject)
-//                    self?.photoActivityIndicator.stopAnimating()
-//                }
-//            }
-//        }
-        
         networkManagerImageData.fetchImage(imageUrl: imageUrl) { [weak self] (image, error) in
-     
+            guard let image = image else {
+                print(error ?? "")
+                DispatchQueue.main.async {
+                    self?.photoImageView.image = #imageLiteral(resourceName: "noImage")
+                }
+                return
+            }
             DispatchQueue.main.async {
                 if self?.currentImageUrl == imageUrl {
                     self?.photoImageView.image = image
-//                    self?.imageCache.setObject(image, forKey: self?.currentImageUrl as AnyObject)
+                    self?.imageCache.setObject(image, forKey: self?.currentImageUrl as AnyObject)
                     self?.photoActivityIndicator.stopAnimating()
                 }
             }
