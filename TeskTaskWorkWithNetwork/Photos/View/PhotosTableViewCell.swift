@@ -16,25 +16,24 @@ class PhotosTableViewCell: UITableViewCell {
     @IBOutlet var photoBackView: UIView!
     @IBOutlet var photoFrontView: UIView!
     
-    private var networkService = NetworkService()
-    var currentImageUrl = ""
+    private let networkManagerImageData = NetworkManagerImageData()
+    private var currentImageUrl = ""
     var imageCache = NSCache<AnyObject, AnyObject>()
     
-    func configure( with photo: Photos) {
-        photoActivityIndicator.isHidden = true
-        photoActivityIndicator.hidesWhenStopped = true
+    func configure( with photo: PhotoInfo) {
+     
         
         self.photoFrontView.layer.masksToBounds = true
         self.photoFrontView.layer.cornerRadius = 10
         cellShadow()
         
         self.photoTitle.text = photo.title ?? ""
-        self.currentImageUrl = photo.url ?? ""
+        self.currentImageUrl = String(photo.url?.suffix(10) ?? "")
         
         if let cacheImage = imageCache.object(forKey: currentImageUrl as AnyObject) as? UIImage {
             self.photoImageView.image = cacheImage
         } else {
-            fetchImage(imageUrl: photo.url ?? "")
+            fetchImage(imageUrl: currentImageUrl)
         }
     }
     
@@ -61,7 +60,14 @@ extension PhotosTableViewCell {
         photoActivityIndicator.isHidden = false
         photoActivityIndicator.startAnimating()
         
-        networkService.fetchImage(imageUrl: imageUrl) { [weak self] (image) in
+        networkManagerImageData.fetchImage(imageUrl: imageUrl) { [weak self] (image, error) in
+            guard let image = image else {
+                print(error ?? "")
+                DispatchQueue.main.async {
+                    self?.photoImageView.image = #imageLiteral(resourceName: "noImage")
+                }
+                return
+            }
             DispatchQueue.main.async {
                 if self?.currentImageUrl == imageUrl {
                     self?.photoImageView.image = image

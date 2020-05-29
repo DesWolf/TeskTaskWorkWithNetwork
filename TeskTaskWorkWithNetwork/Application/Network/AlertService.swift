@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Foundation
 
 extension UIAlertController {
     class func alert(title:String, msg:String, target: UIViewController) {

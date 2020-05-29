@@ -8,26 +8,49 @@
 
 /* Begin PBXBuildFile section */
 		9E1345CB24640DE9007103E3 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1345CA24640DE9007103E3 /* AlertService.swift */; };
+		9E1345D324642F2C007103E3 /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1345D224642F2C007103E3 /* EndPointType.swift */; };
+		9E1345D524642FF9007103E3 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1345D424642FF9007103E3 /* HTTPMethod.swift */; };
+		9E1345D72464306D007103E3 /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1345D62464306D007103E3 /* HTTPTask.swift */; };
+		9E1345D92464371E007103E3 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1345D82464371E007103E3 /* ParameterEncoding.swift */; };
+		9E1345DB24643AD6007103E3 /* URLParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1345DA24643AD6007103E3 /* URLParameterEncoding.swift */; };
+		9E1345DD24643B66007103E3 /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1345DC24643B66007103E3 /* JSONParameterEncoder.swift */; };
+		9E1345DF24643BD9007103E3 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1345DE24643BD9007103E3 /* Router.swift */; };
+		9E1345E1246452E3007103E3 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1345E0246452E3007103E3 /* NetworkLogger.swift */; };
+		9E1345E3246454F1007103E3 /* NetworkManagerMainData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1345E2246454F1007103E3 /* NetworkManagerMainData.swift */; };
+		9E1345E72464582B007103E3 /* DataEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1345E62464582B007103E3 /* DataEndPoint.swift */; };
+		9E1C863B246AB13100F038C3 /* NetworkManagerImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1C863A246AB13100F038C3 /* NetworkManagerImageData.swift */; };
 		9E525D7D23FD2896002292DD /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E525D7C23FD2896002292DD /* PhotosTableViewCell.swift */; };
 		9E525D7F23FD29B5002292DD /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E525D7E23FD29B5002292DD /* UsersTableViewCell.swift */; };
 		9E6DC8C724013C04009482E2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E6DC8C624013C04009482E2 /* Default-568h@2x.png */; };
+		9E8B4249246C233D004F42E4 /* PhotoEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B4248246C233D004F42E4 /* PhotoEndPoint.swift */; };
 		9ECFB8B323FD0D7C0094C702 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFB8B223FD0D7C0094C702 /* AppDelegate.swift */; };
 		9ECFB8B723FD0D7C0094C702 /* UsersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFB8B623FD0D7C0094C702 /* UsersVC.swift */; };
 		9ECFB8BA23FD0D7C0094C702 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9ECFB8B823FD0D7C0094C702 /* Main.storyboard */; };
 		9ECFB8BC23FD0D7F0094C702 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ECFB8BB23FD0D7F0094C702 /* Assets.xcassets */; };
 		9ECFB8BF23FD0D7F0094C702 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9ECFB8BD23FD0D7F0094C702 /* LaunchScreen.storyboard */; };
 		9ECFB8C723FD1A8C0094C702 /* PhotosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFB8C623FD1A8C0094C702 /* PhotosVC.swift */; };
-		9ECFB8C923FD1B700094C702 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFB8C823FD1B700094C702 /* NetworkService.swift */; };
-		9ECFB8D223FD20790094C702 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFB8D123FD20790094C702 /* Users.swift */; };
-		9ECFB8D423FD208F0094C702 /* Albums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFB8D323FD208F0094C702 /* Albums.swift */; };
-		9ECFB8D623FD209D0094C702 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFB8D523FD209D0094C702 /* Photos.swift */; };
+		9ECFB8D223FD20790094C702 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFB8D123FD20790094C702 /* User.swift */; };
+		9ECFB8D423FD208F0094C702 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFB8D323FD208F0094C702 /* Album.swift */; };
+		9ECFB8D623FD209D0094C702 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECFB8D523FD209D0094C702 /* Photo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9E1345CA24640DE9007103E3 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
+		9E1345D224642F2C007103E3 /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
+		9E1345D424642FF9007103E3 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		9E1345D62464306D007103E3 /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
+		9E1345D82464371E007103E3 /* ParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		9E1345DA24643AD6007103E3 /* URLParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLParameterEncoding.swift; sourceTree = "<group>"; };
+		9E1345DC24643B66007103E3 /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
+		9E1345DE24643BD9007103E3 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		9E1345E0246452E3007103E3 /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
+		9E1345E2246454F1007103E3 /* NetworkManagerMainData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerMainData.swift; sourceTree = "<group>"; };
+		9E1345E62464582B007103E3 /* DataEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataEndPoint.swift; sourceTree = "<group>"; };
+		9E1C863A246AB13100F038C3 /* NetworkManagerImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerImageData.swift; sourceTree = "<group>"; };
 		9E525D7C23FD2896002292DD /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
 		9E525D7E23FD29B5002292DD /* UsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
 		9E6DC8C624013C04009482E2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		9E8B4248246C233D004F42E4 /* PhotoEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEndPoint.swift; sourceTree = "<group>"; };
 		9ECFB8AF23FD0D7C0094C702 /* TeskTaskWorkWithNetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeskTaskWorkWithNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ECFB8B223FD0D7C0094C702 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9ECFB8B623FD0D7C0094C702 /* UsersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersVC.swift; sourceTree = "<group>"; };
@@ -36,10 +59,9 @@
 		9ECFB8BE23FD0D7F0094C702 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9ECFB8C023FD0D7F0094C702 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9ECFB8C623FD1A8C0094C702 /* PhotosVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosVC.swift; sourceTree = "<group>"; };
-		9ECFB8C823FD1B700094C702 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		9ECFB8D123FD20790094C702 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
-		9ECFB8D323FD208F0094C702 /* Albums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Albums.swift; sourceTree = "<group>"; };
-		9ECFB8D523FD209D0094C702 /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
+		9ECFB8D123FD20790094C702 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9ECFB8D323FD208F0094C702 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		9ECFB8D523FD209D0094C702 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +75,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E1345CE24642E7D007103E3 /* Encoding */ = {
+			isa = PBXGroup;
+			children = (
+				9E1345D82464371E007103E3 /* ParameterEncoding.swift */,
+				9E1345DA24643AD6007103E3 /* URLParameterEncoding.swift */,
+				9E1345DC24643B66007103E3 /* JSONParameterEncoder.swift */,
+			);
+			path = Encoding;
+			sourceTree = "<group>";
+		};
+		9E1345CF24642E7F007103E3 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				9E1345D224642F2C007103E3 /* EndPointType.swift */,
+				9E1345DE24643BD9007103E3 /* Router.swift */,
+				9E1345D424642FF9007103E3 /* HTTPMethod.swift */,
+				9E1345D62464306D007103E3 /* HTTPTask.swift */,
+				9E1345E0246452E3007103E3 /* NetworkLogger.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		9E1345D024642E81007103E3 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				9E1345E2246454F1007103E3 /* NetworkManagerMainData.swift */,
+				9E1C863A246AB13100F038C3 /* NetworkManagerImageData.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		9E1345D124642E89007103E3 /* EndPoint */ = {
+			isa = PBXGroup;
+			children = (
+				9E1345E62464582B007103E3 /* DataEndPoint.swift */,
+				9E8B4248246C233D004F42E4 /* PhotoEndPoint.swift */,
+			);
+			path = EndPoint;
+			sourceTree = "<group>";
+		};
 		9E6DC8B624013735009482E2 /* Users */ = {
 			isa = PBXGroup;
 			children = (
@@ -82,8 +144,8 @@
 		9E6DC8B92401375F009482E2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9ECFB8D123FD20790094C702 /* Users.swift */,
-				9ECFB8D323FD208F0094C702 /* Albums.swift */,
+				9ECFB8D123FD20790094C702 /* User.swift */,
+				9ECFB8D323FD208F0094C702 /* Album.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -117,7 +179,7 @@
 		9E6DC8C1240137C0009482E2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9ECFB8D523FD209D0094C702 /* Photos.swift */,
+				9ECFB8D523FD209D0094C702 /* Photo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -125,7 +187,6 @@
 		9E6DC8C2240137E4009482E2 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				9E6DC8C5240137FF009482E2 /* Model */,
 				9E6DC8C4240137F9009482E2 /* View */,
 				9E6DC8C3240137EC009482E2 /* Controller */,
 				9ECFB8CC23FD1E4A0094C702 /* Network */,
@@ -148,13 +209,6 @@
 				9ECFB8B823FD0D7C0094C702 /* Main.storyboard */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		9E6DC8C5240137FF009482E2 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		9ECFB8A623FD0D7C0094C702 = {
@@ -188,7 +242,10 @@
 		9ECFB8CC23FD1E4A0094C702 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				9ECFB8C823FD1B700094C702 /* NetworkService.swift */,
+				9E1345D124642E89007103E3 /* EndPoint */,
+				9E1345D024642E81007103E3 /* Manager */,
+				9E1345CF24642E7F007103E3 /* Service */,
+				9E1345CE24642E7D007103E3 /* Encoding */,
 				9E1345CA24640DE9007103E3 /* AlertService.swift */,
 			);
 			path = Network;
@@ -275,15 +332,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E1345E3246454F1007103E3 /* NetworkManagerMainData.swift in Sources */,
+				9E1345DD24643B66007103E3 /* JSONParameterEncoder.swift in Sources */,
+				9E1345D92464371E007103E3 /* ParameterEncoding.swift in Sources */,
 				9E525D7F23FD29B5002292DD /* UsersTableViewCell.swift in Sources */,
-				9ECFB8D623FD209D0094C702 /* Photos.swift in Sources */,
+				9ECFB8D623FD209D0094C702 /* Photo.swift in Sources */,
 				9ECFB8B723FD0D7C0094C702 /* UsersVC.swift in Sources */,
-				9ECFB8D423FD208F0094C702 /* Albums.swift in Sources */,
+				9E1345DB24643AD6007103E3 /* URLParameterEncoding.swift in Sources */,
+				9E1345E1246452E3007103E3 /* NetworkLogger.swift in Sources */,
+				9E8B4249246C233D004F42E4 /* PhotoEndPoint.swift in Sources */,
+				9ECFB8D423FD208F0094C702 /* Album.swift in Sources */,
 				9E1345CB24640DE9007103E3 /* AlertService.swift in Sources */,
+				9E1345D72464306D007103E3 /* HTTPTask.swift in Sources */,
+				9E1345D324642F2C007103E3 /* EndPointType.swift in Sources */,
+				9E1345DF24643BD9007103E3 /* Router.swift in Sources */,
 				9ECFB8B323FD0D7C0094C702 /* AppDelegate.swift in Sources */,
-				9ECFB8C923FD1B700094C702 /* NetworkService.swift in Sources */,
+				9E1C863B246AB13100F038C3 /* NetworkManagerImageData.swift in Sources */,
+				9E1345D524642FF9007103E3 /* HTTPMethod.swift in Sources */,
+				9E1345E72464582B007103E3 /* DataEndPoint.swift in Sources */,
 				9E525D7D23FD2896002292DD /* PhotosTableViewCell.swift in Sources */,
-				9ECFB8D223FD20790094C702 /* Users.swift in Sources */,
+				9ECFB8D223FD20790094C702 /* User.swift in Sources */,
 				9ECFB8C723FD1A8C0094C702 /* PhotosVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

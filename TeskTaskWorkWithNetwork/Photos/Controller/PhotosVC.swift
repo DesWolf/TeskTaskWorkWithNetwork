@@ -13,35 +13,40 @@ class PhotosVC: UIViewController{
     @IBOutlet weak var tableView: UITableView!
     
     var albumsIDs = [Int]()
-    private var photos = [Photos]()
-    private var filteredPhotos = [Photos]()
-    private var networkService = NetworkService()
+    private var photos = [PhotoInfo]()
+    private var filteredPhotos = [PhotoInfo]()
+    private let networkManagerMainData = NetworkManagerMainData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchPhotosData()
-        networkService.delegate = self
     }
-    
-    // MARK: Network
+}
+
+// MARK: Network
+extension PhotosVC {
     private func fetchPhotosData() {
-        
-        networkService.fetchPhotosData() { [weak self] (jsonData) in
-            self?.photos = jsonData
-            for index in 0..<(self?.albumsIDs.count ?? 0) {
-                self?.filteredPhotos += (self?.photos.filter{ $0.albumId == self?.albumsIDs[index]})!
-            }
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
+        for elem in 0..<(albumsIDs.count) {
+            networkManagerMainData.fetchPhotosData(albumId: elem) { [weak self] (photoInfo, error) in
+                guard let photoInfo = photoInfo else {
+                    print(error ?? "")
+                    DispatchQueue.main.async {
+                        self?.alertNetwork(message: error ?? "")
+                    }
+                    return
+                }
+                self?.filteredPhotos += photoInfo
+                
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
             }
         }
     }
-}
 
 // MARK: TableViewDataSource
 
 extension PhotosVC: UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredPhotos.count
     }
@@ -60,9 +65,9 @@ extension PhotosVC: UITableViewDataSource {
 }
 
 //MARK: Alert
-extension PhotosVC: AlertNetworkProtocol  {
-    func alertNetwork() {
+extension PhotosVC {
+    func alertNetwork(message: String) {
         print("AlertinVC")
-        UIAlertController.alert(title:"Error", msg:"Network is unavaliable! Please try again later!", target: self)
+        UIAlertController.alert(title:"Error", msg:"\(message)", target: self)
     }
 }

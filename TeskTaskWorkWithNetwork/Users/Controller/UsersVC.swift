@@ -12,28 +12,36 @@ class UsersVC: UIViewController{
     
     @IBOutlet weak var tableView: UITableView!
     
-    private var users = [Users]()
-    private var albums = [Albums]()
-    private var networkService = NetworkService()
+    var users = [User]()
+    var albums = [Album]()
+    private let networkManagerMainData =  NetworkManagerMainData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchUsersData()
-        networkService.delegate = self
+        fetchAlbumsData()
         self.tableView.tableFooterView = UIView()
     }
     
     @IBAction func updateUsers(_ sender: Any) {
         fetchUsersData()
+        fetchAlbumsData()
+        
     }
 }
 
 // MARK: Network
 extension UsersVC {
     private func fetchUsersData() {
-        networkService.fetchUsersData() { [weak self]  (jsonData) in
-            self?.users = jsonData
-            self?.fetchAlbumsData()
+        networkManagerMainData.fetchUsersData() { [weak self]  (users, error)  in
+            guard let users = users else {
+                print(error ?? "")
+                    DispatchQueue.main.async {
+                        self?.alertNetwork(message: error ?? "")
+                    }
+                    return
+                }
+            self?.users = users
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
             }
@@ -41,18 +49,23 @@ extension UsersVC {
     }
     
     private func fetchAlbumsData() {
-        networkService.fetchAlbumsData() { [weak self] (jsonData) in
-            self?.albums = jsonData
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
+        networkManagerMainData.fetchAlbumData() { [weak self] (albums, error) in
+            guard let albums = albums else {
+                print(error ?? "")
+                DispatchQueue.main.async {
+                    self?.alertNetwork(message: error ?? "")
+                }
+                return
             }
+            self?.albums = albums
+            
         }
     }
 }
 
+
 // MARK: Navigation
 extension UsersVC {
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "photosVC" {
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
@@ -82,10 +95,9 @@ extension UsersVC: UITableViewDelegate, UITableViewDataSource {
 }
 
 //MARK: Alert
-extension UsersVC: AlertNetworkProtocol  {
-    func alertNetwork() {
-        print("AlertinVC")
-        UIAlertController.alert(title:"Error", msg:"Network is unavaliable! Please try again later!", target: self)
+extension UsersVC  {
+    func alertNetwork(message: String) {
+        UIAlertController.alert(title:"Error", msg:"\(message)", target: self)
     }
 }
 

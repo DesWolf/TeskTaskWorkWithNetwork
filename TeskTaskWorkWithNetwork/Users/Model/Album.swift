@@ -1,5 +1,5 @@
 //
-//  photosModel.swift
+//  albumsModel.swift
 //  TeskTaskWorkWithNetwork
 //
 //  Created by Максим Окунеев on 2/19/20.
@@ -8,11 +8,10 @@
 
 import Foundation
 
-struct Photos: Decodable {
-
-    let albumId: Int?
+struct Album: Decodable {
+    
+    let userId: Int?
     let id: Int?
     let title: String?
-    let url: String?
-    let thumbnailUrl: String?
 }
+
