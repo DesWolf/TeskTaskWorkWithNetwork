@@ -43,7 +43,6 @@ extension PhotosVC {
             }
         }
     }
-}
 
 // MARK: TableViewDataSource
 
