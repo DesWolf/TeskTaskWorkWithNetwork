@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Review: Хорошо бы использовать swiftlint. Много неаккуратности, неконсистентности в определении классов, пробелов и т.п.
 enum NetworkResponse:String {
     case success
     case authenticationError = "You need to be authenticated first."
@@ -18,10 +19,14 @@ enum NetworkResponse:String {
     case unableToDecode = "We could not decode the response."
 }
 
+// Review: Можно использовать родной Result<>, а ошибки схлопывать до одной строки - плохой способ.
+// Хорошо бы реализовывать протокол Error, а внутри отдавать localizedDescription (тоже часть протокола).
+// Такие ошибки затем легко обрабатывать на слое представления. Например, класть внутрь alert error.localizedDescription
 enum Result<String>{
     case success
     case failure(String)
 }
+
 
 struct NetworkManagerMainData {
     static let environment : NetworkEnvironment = .production
@@ -29,7 +34,12 @@ struct NetworkManagerMainData {
     
     func fetchUsersData(completion: @escaping (_ users: [User]?,_ error: String?)->()){
         router.request(.users) { data, response, error in
-            
+
+            // Review: Код обработки одинаковый. Стоило бы сделать методы, и не повторяться.
+            // Помогут Generic методы.
+            // Error и опциональный response можно было передавать в handleNetworkResponse
+            // сompletion реализован 5 раз, это можно оптимизировать, и сделать централизованным.
+
             if error != nil {
                 completion(nil, "Please check your network connection.")
             }

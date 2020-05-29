@@ -18,12 +18,13 @@ public enum DataApi {
     case users
     case albums
     case photos(albumId: Int)
-    case photoImage(imageUrl: String)
+    case photoImage(imageUrl: String) // Review: Не используется
 }
 
 extension DataApi: EndPointType {
     
     var environmentBaseURL : String {
+        // Review: Одинаковое значение, switch не нужен.
         switch NetworkManagerMainData.environment {
         case .qa: return "https://jsonplaceholder.typicode.com/"
         case .production: return "https://jsonplaceholder.typicode.com/"

@@ -8,6 +8,8 @@
 
 import UIKit
 
+// Review: Можно было научить все контроллеры создавать алерт, и не было бы необходимости добавлять этот хелпер в каждый контроллер.
+// extension UIViewController { func alertNetwork(message:String) }
 extension UIAlertController {
     class func alert(title:String, msg:String, target: UIViewController) {
         let alert = UIAlertController(title: title, message: msg, preferredStyle: UIAlertController.Style.alert)

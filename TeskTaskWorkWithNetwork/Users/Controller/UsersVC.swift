@@ -8,6 +8,10 @@
 
 import UIKit
 
+// Review: Хочется сократить, имя длинное, но, лучше не надо :)
+// В коде не страшно, когда будет let vc = UsersViewController, но вот тип лучше делать развернутым) Иначе могут случиться разночтения.
+// Контроллеры бывают разные. ContainerController, ModelController, NavigationController, ContentController.
+// Всё зависит от нейминга, и лучше тут не сокращать
 class UsersVC: UIViewController{
     
     @IBOutlet weak var tableView: UITableView!
@@ -66,6 +70,18 @@ extension UsersVC {
 
 // MARK: Navigation
 extension UsersVC {
+  // Review: segue очень ненадёжный инструмент, хоть и можно сказать,что это вопрос выбора/договоренностей.
+  // Его минусы:
+  // - разносит логику между XIB/кодом
+  // - не строго типизирован (если не использовать генераторы кода)
+  // - создаёт следующий контроллер сам, а это значит, что проставить зависимости в тот контроллер можно забыть,
+  //  создать вообще без зависимостей. Лучше определять все зависимости контроллера в init(), например для UsersVC:
+  //
+  //  init(networkManager: NetworkManagerMainData) {
+  //    self.networkManager = networkManager
+  //    super.init(nibName: nil, bundle: nil)
+  //  }
+  //
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "photosVC" {
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
@@ -87,6 +103,9 @@ extension UsersVC: UITableViewDelegate, UITableViewDataSource {
         return users.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+      // Review: Эта ячейка очень похожа на обычную UITableViewCell с конфигурацией в виде .accessoryType = .disclosureIndicator.
+      // Можно было не создавать её в сториборде, но это мелочь)
         let cell = tableView.dequeueReusableCell(withIdentifier: "usersVCCell", for: indexPath) as! UsersTableViewCell
         let user = users[indexPath.row]
         cell.configere(with: user)
