@@ -43,9 +43,9 @@ extension PhotosVC {
             }
         }
     }
+}
 
 // MARK: TableViewDataSource
-
 extension PhotosVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredPhotos.count
