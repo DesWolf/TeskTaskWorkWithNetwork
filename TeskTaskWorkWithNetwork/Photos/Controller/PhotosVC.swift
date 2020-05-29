@@ -56,7 +56,8 @@ extension PhotosVC: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "photosVCCell", for: indexPath) as! PhotosTableViewCell
         let photo = filteredPhotos[indexPath.row]
         cell.configure(with: photo)
-        
+
+        // Review: Ячейка имеет неявную конфигурацию. В 90% случаев должно хватать одного метода configure(with:)
         let borderColor: UIColor =  .init(red: 240/256, green: 240/256, blue: 240/256, alpha: 1)
         cell.photoFrontView.layer.borderColor = borderColor.cgColor
         

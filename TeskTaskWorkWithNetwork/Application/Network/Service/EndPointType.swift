@@ -8,6 +8,8 @@
 
 import Foundation
 
+// Review: Moya видна :)
+
 protocol EndPointType {
     var baseURL: URL { get }
     var path: String { get }

@@ -11,6 +11,8 @@ import Foundation
 public enum HTTPMethod : String {
     case get     = "GET"
     case post    = "POST"
+
+  // Review: Взято из Moya, но кейсы ниже не нужны
     case put     = "PUT"
     case patch   = "PATCH"
     case delete  = "DELETE"

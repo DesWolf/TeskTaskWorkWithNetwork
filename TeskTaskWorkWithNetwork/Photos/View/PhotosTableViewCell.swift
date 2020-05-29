@@ -8,8 +8,21 @@
 
 import UIKit
 
+// Review: Ячейка не должна знать что-либо о данных. Лучше бы прокидывать просто пропсы/вью модель в неё.
+// Логику загрузки кэшируемых картинок отправить в отдельный объект, который принимает на вход imageView, url и присваивает картинку.
+// Этот объект лучше бы был единым на приложение, т.к. кэш в приложении.
+
 class PhotosTableViewCell: UITableViewCell {
-    
+
+    // Review: Хороший тон - делать @IBOutlet, и любые вьюшки, содержащиеся в слое презентации приватными.
+    // Снаружи конфигурировать их можно только понятным объектом. Например, если у тебя 3 лейбла, один из них скрывается, если текста нет:
+    //
+    //    struct ViewModel {
+    //      let title: String
+    //      let subtitle: String
+    //      let body: String?
+    //    }
+    //
     @IBOutlet var photoImageView: UIImageView!
     @IBOutlet var photoTitle: UILabel!
     @IBOutlet var photoActivityIndicator: UIActivityIndicatorView!
@@ -19,6 +32,8 @@ class PhotosTableViewCell: UITableViewCell {
     private let networkManagerImageData = NetworkManagerImageData()
     private var currentImageUrl = ""
     var imageCache = NSCache<AnyObject, AnyObject>()
+    // Review: Типизация нужна. Но это мелочь, по сравнению с тем, что кэш находится внутри ячейки.
+    // Каждой ячейки) Должен быть отдельный менеджер/сервис кэша картинок
     
     func configure( with photo: PhotoInfo) {
      
@@ -29,6 +44,9 @@ class PhotosTableViewCell: UITableViewCell {
         
         self.photoTitle.text = photo.title ?? ""
         self.currentImageUrl = String(photo.url?.suffix(10) ?? "")
+        // Review: Этот суффикс - первый признак того, что что-то идёт не так.
+        // networkImageData не нужен, нужно прямо из корректной URLSession идти за картинкой по урлу
+        // :) Зачем возвращать тип из URL в String?
         
         if let cacheImage = imageCache.object(forKey: currentImageUrl as AnyObject) as? UIImage {
             self.photoImageView.image = cacheImage
@@ -71,6 +89,7 @@ extension PhotosTableViewCell {
             DispatchQueue.main.async {
                 if self?.currentImageUrl == imageUrl {
                     self?.photoImageView.image = image
+                    // Review: Сохранять в кэш стоит не в main потоке.
                     self?.imageCache.setObject(image, forKey: self?.currentImageUrl as AnyObject)
                     self?.photoActivityIndicator.stopAnimating()
                 }
