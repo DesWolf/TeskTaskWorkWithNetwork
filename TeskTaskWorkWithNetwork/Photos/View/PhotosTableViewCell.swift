@@ -21,8 +21,7 @@ class PhotosTableViewCell: UITableViewCell {
     var imageCache = NSCache<AnyObject, AnyObject>()
     
     func configure( with photo: PhotoInfo) {
-        photoActivityIndicator.isHidden = true
-        photoActivityIndicator.hidesWhenStopped = true
+     
         
         self.photoFrontView.layer.masksToBounds = true
         self.photoFrontView.layer.cornerRadius = 10

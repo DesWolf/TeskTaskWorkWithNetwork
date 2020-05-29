@@ -32,7 +32,6 @@ class UsersVC: UIViewController{
 
 // MARK: Network
 extension UsersVC {
-    
     private func fetchUsersData() {
         networkManagerMainData.fetchUsersData() { [weak self]  (users, error)  in
             guard let users = users else {
@@ -67,7 +66,6 @@ extension UsersVC {
 
 // MARK: Navigation
 extension UsersVC {
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "photosVC" {
             guard let indexPath = tableView.indexPathForSelectedRow else { return }

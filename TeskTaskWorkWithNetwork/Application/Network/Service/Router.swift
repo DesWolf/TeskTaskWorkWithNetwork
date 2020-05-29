@@ -93,5 +93,4 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
             request.setValue(value, forHTTPHeaderField: key)
         }
     }
-    
 }
