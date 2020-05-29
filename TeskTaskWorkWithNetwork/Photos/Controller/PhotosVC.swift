@@ -28,7 +28,7 @@ class PhotosVC: UIViewController{
         
         networkService.fetchPhotosData() { [weak self] (jsonData) in
             self?.photos = jsonData
-            for index in 0..<(self?.albumsIDs.count)! {
+            for index in 0..<(self?.albumsIDs.count ?? 0)) {
                 self?.filteredPhotos += (self?.photos.filter{ $0.albumId == self?.albumsIDs[index]})!
             }
             DispatchQueue.main.async {
